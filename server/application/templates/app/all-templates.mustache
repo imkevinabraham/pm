@@ -1,0 +1,3299 @@
+<div id="templates">
+
+<div id="server-side-template-tags">{{=[[ ]]=}}</div>
+
+<div id="template-smart-menu">
+    <div class="smart-menu {{class}}">
+        <ul class="smart-menu-items">
+            {{#items}}
+            <li id="{{itemId}}"><span></span>{{itemText}}</li>
+            {{/items}}
+
+        </ul>
+        <div class="more">
+            <span class="sidebar-icon ti-more-alt more-icon"></span>
+            <span class="sidebar-icon ti-menu menu-icon"></span>
+            <span class="smart-menu-more-text">[[smartMenu.more]]</span>
+            <span class="smart-menu-menu-text">[[smartMenu.menu]]</span>
+
+            <ul class="smart-menu-overflow">
+
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="template-panel">
+    <div id="{{id}}" class="panel top-info {{type}}">
+        <div class="panel-info">
+            <h3 class="panel-title">{{title}}</h3>
+
+            <div class="panel-sort-wrapper">
+
+            </div>
+
+            <div class="panel-filter-wrapper"></div>
+
+
+            <div class="panel-actions-wrapper">
+                <ul class="panel-actions">
+                    {{#actions}}
+                    <li class="panel-action {{class}}" data-action="{{actionUrl}}">{{panelAction}}</li>
+                    {{/actions}}
+                </ul>
+            </div>
+
+        </div>
+        <div class="notification">
+            <span class="notificiation-message"></span>
+            <span class="close"></span>
+        </div>
+
+    </div>
+</div>
+
+<div id="template-panel-two">
+    {{!TODO:Why does primary panel have top info class and not the secondary panel?}}
+    <div id="{{id}}" class="panel {{type}}">
+        <div class="panel-info">
+            <h3 class="panel-title">{{title}}</h3>
+
+            <div class="panel-title-widget"></div>
+
+
+            <div class="panel-actions-wrapper">
+                <div id="discuss-button-wrapper"></div>
+
+                {{#userIsAdmin}}
+                <div class="panel-actions">
+
+                </div>
+                {{/userIsAdmin}}
+
+            </div>
+
+        </div>
+
+
+        <div class="inner">
+            <div class="inner-left ">
+
+                <div class="notification">
+                    <span class="notificiation-message"></span>
+                    <span class="close"></span>
+                </div>
+
+                <div class="inner-menu">
+                    <div class="left-menu"></div>
+
+
+                    <div class="right-menu secondary-inner-menu">
+
+                    </div>
+
+                </div>
+
+
+                <div class="inner-content-wrapper nano top">
+                    <div class="inner-content content">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="inner-right">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</div>
+
+<div id="template-panel-filter">
+    <div class="panel-filter" data-filter-property="{{filterProperty}}">
+        <div class="panel-selected-filter">
+            <span class="selected-filter-name">{{selected}}</span>
+            <span class="caret caret-down"></span>
+        </div>
+        <ul>
+            {{#filters}}
+            <li data-value="{{value}}" data-param="{{param}}">{{name}}</li>
+            {{/filters}}
+        </ul>
+    </div>
+</div>
+
+<div id="template-panel-sort">
+    <div class="panel-sort">
+        <div class="arrow-up"></div>
+        <div class="arrow-down"></div>
+    </div>
+
+
+</div>
+
+<div id="template-panel-actions">
+    <div> {{#actions}}
+        <div id="{{id}}" class="panel-action {{class}}"
+             data-action="{{actionUrl}}">{{panelAction}}
+        </div>
+        {{/actions}}
+    </div>
+</div>
+
+<div id="template-discuss-button">
+    <span id="show-messages-panel" class="clear-button">
+        <span class="icon ti-comments"></span>
+        <span class="discuss-button-text">[[messagesPanel.discussProject]]</span>
+    </span>
+</div>
+
+<div id="template-button-set">
+    <ul id="{{id}}" class="button-set">
+        {{#buttons}}
+        <li id="{{buttonId}}" class="{{class}}"><span></span>{{buttonText}}</li>
+        {{/buttons}}
+    </ul>
+</div>
+
+<div id="template-button">
+    <div id="{{buttonId}}" class="{{buttonType}} button">{{buttonText}}</div>
+</div>
+
+
+<div id="template-list">
+    <div class="nano">
+
+        <ul class="list detailed-list content {{listClass}}">
+            {{#listItems}}
+            <li class="{{statusText}} {{statusClass}}" data-id="{{id}}">
+                <div class="top-details">{{title}}</div>
+                <div class="bottom-details">
+                    <div class="detail">{{meta1}}</div>
+                    <div class="detail">{{meta2}}</div>
+                    <div class="detail">{{meta3}}</div>
+                </div>
+                <div class="status"></div>
+            </li>
+            {{/listItems}}
+        </ul>
+    </div>
+</div>
+
+<div id="template-project-invoice-list">
+    <div class="list condensed invoice-list">
+        <div class="list-main-header">
+            <div class="invoice-number">[[invoiceList.invoiceNumber]]</div>
+            <div class="invoice-total">[[invoiceList.total]]</div>
+            <div class="invoice-balance">[[invoiceList.balance]]</div>
+            <div class="invoice-status">[[invoiceList.status]]</div>
+            <div class="invoice-due-date">[[invoiceList.dueDate]]</div>
+        </div>
+
+        <ul class="">
+            {{#invoices}}
+            <li class="{{statusClass}}" data-id={{id}}>
+                <div class="invoice-number">{{number}}</div>
+                <div class="invoice-total">{{formattedTotal}}</div>
+                <div class="invoice-balance">{{formattedBalance}}</div>
+                <div class="invoice-status {{statusClass}}"><span class="status-text">{{statusText}}</span></div>
+                <div class="invoice-due-date">{{dueDateHumanized}}</div>
+            </li>
+            {{/invoices}}
+        </ul>
+    </div>
+</div>
+
+<div id="template-project-file-list">
+    <div class="list condensed file-list">
+        <div class="list-main-header">
+            <div class="file-extension"></div>
+            <div class="file-title">[[fileList.title]]</div>
+            <div class="file-type">[[fileList.type]]</div>
+            <div class="file-uploader-name">[[fileList.uploadedBy]]</div>
+            <div class="file-create-date">[[fileList.date]]</div>
+        </div>
+
+        <ul class="">
+            {{#files}}
+            <li class="{{statusClass}} {{type}} {{extension}}" data-id={{id}}>
+                <div class="file-extension"><span>{{extension}}</span></div>
+                <div class="file-title">{{name}}</div>
+                <div class="file-type">{{type}}</div>
+                <div class="file-uploader-name">{{uploadedBy}}</div>
+                <div class="file-create-date">{{dateText}}</div>
+            </li>
+            {{/files}}
+        </ul>
+    </div>
+</div>
+
+
+<div id="template-project-task-list-wrapper">
+    <div id="tasks-list-wrapper"></div>
+</div>
+
+
+<div id="template-project-task-list">
+    <div id="tasks-list">
+        <ul id="completed-tasks-list" class="list condensed task-list">
+            {{#complete}}
+            <li id="{{id}}" class="{{statusClass}} {{classes}}" data-id={{id}}>
+
+                <div class="sort-handle"></div>
+                <div class="is-task-completed "></div>
+                <div class="saving-indicator"></div>
+                <div class="retry-save save-item" title="[[taskDetails.errorSavingTitle]]"></div>
+                <div class="task-details">{{task}}</div>
+                <div class="task-due-date">{{dueDateHumanized}}</div>
+                <div class="task-assigned"><span class="tag">{{assignedToName}}</span></div>
+                <div class="task-meta">
+                    {{#hasNotes}}
+                    <span class="has-notes task-list-icon ti-notepad" title="[[taskDetails.hasNotesTitle]]"></span>
+                    {{/hasNotes}}
+                </div>
+                <div class="task-actions">
+
+                    <div class="delete-task ti-trash" title="[[taskDetails.deleteTitle]]"></div>
+                    <div class="view-task ti-eye" title="[[taskDetails.viewTitle]]"></div>
+                </div>
+            </li>
+            {{/complete}}
+        </ul>
+        <ul id="incomplete-tasks-list" class="list condensed task-list">
+            {{#incomplete}}
+            <li id="{{id}}" class="{{statusClass}} {{classes}}" data-id={{id}}>
+                <div class="sort-handle"></div>
+                <div class="is-task-completed "></div>
+                <div class="saving-indicator"></div>
+                <div class="retry-save save-item" title="[[taskDetails.errorSavingTitle]]"></div>
+                <div class="task-details">{{task}}</div>
+                <div class="task-assigned"><span class="tag">{{assignedToName}}</span></div>
+                <div class="task-due-date">{{dueDateHumanized}}</div>
+                <div class="task-meta">
+                    {{#hasNotes}}
+                    <span class="has-notes task-list-icon ti-notepad" title="[[taskDetails.hasNotesTitle]]"></span>
+                    {{/hasNotes}}
+                </div>
+                <div class="task-actions">
+
+                    <div class="delete-task ti-trash" title="[[taskDetails.deleteTitle]]"></div>
+                    <div class="view-task ti-eye" title="[[taskDetails.viewTitle]]"></div>
+                    <div class="discuss-task ti-comment-alt" title="[[taskDetails.discuss]]"></div>
+                    <div class="start-timer-for-task ti-timer" title="[[taskDetails.startTimer]]"></div>
+                </div>
+            </li>
+            {{/incomplete}}
+        </ul>
+    </div>
+</div>
+
+<div id="template-project-client-task-list">
+    <div id="tasks-list" class="client-task-list">
+        <ul id="completed-tasks-list" class="list condensed task-list">
+            {{#complete}}
+            <li id="{{id}}" class="{{statusClass}} {{classes}}" data-id={{id}}>
+                <div class="is-task-completed "></div>
+                <div class="saving-indicator"></div>
+                <div class="task-details">{{task}}</div>
+                <div class="task-assigned"><span class="tag">{{assignedToName}}</span></div>
+                <div class="task-due-date">{{dueDateHumanized}}</div>
+            </li>
+            {{/complete}}
+        </ul>
+        <ul id="incomplete-tasks-list" class="list condensed task-list">
+            {{#incomplete}}
+            <li id="{{id}}" class="{{statusClass}} {{classes}} {{#isAssignedToMe}}mine{{/isAssignedToMe}}" data-id={{id}}>
+                <div class="is-task-completed "></div>
+                <div class="saving-indicator"></div>
+                <div class="task-details">{{task}}</div>
+                <div class="task-assigned"><span class="tag">{{assignedToName}}</span></div>
+                <div class="task-due-date">{{dueDateHumanized}}</div>
+            </li>
+            </li>
+            {{/incomplete}}
+        </ul>
+    </div>
+</div>
+
+<div id="template-project-task-list-item">
+    <li id="{{id}}" class="{{statusClass}}" data-id={{id}}>
+        <div class="sort-handle"></div>
+        <div class="is-task-completed "></div>
+        <div class="saving-indicator"></div>
+        <div class="task-details">{{task}}</div>
+        <div class="task-assigned"><span class="tag">{{assignedToName}}</span></div>
+        <div class="task-due-date">{{dueDateHumanized}}</div>
+        <div class="task-meta">
+            {{#hasNotes}}
+            <span class="has-notes task-list-icon ti-notepad" title="[[taskDetails.hasNotesTitle]]"></span>
+            {{/hasNotes}}
+        </div>
+        <div class="task-actions">
+
+            <div class="delete-task ti-trash" title="[[taskDetails.deleteTitle]]"></div>
+            <div class="view-task ti-eye" title="[[taskDetails.viewTitle]]"></div>
+            <div class="discuss-task ti-comment-alt" title="[[taskDetails.discussTask]]"></div>
+            <div class="start-timer-for-task ti-timer" title="[[taskDetails.startTimer]]"></div>
+        </div>
+    </li>
+</div>
+
+<div id="template-task-list-message">
+    <div class="task-list-message {{type}}">
+        {{message}}
+
+        {{#closeButtonText}}
+        <span class="close">{{closeButtonText}}</span>
+        {{/closeButtonText}}
+
+        {{#noCloseButtonText}}
+        <span class="close">x</span>
+        {{/noCloseButtonText}}
+
+    </div>
+
+</div>
+
+
+<div id="template-task-details">
+    <div class="item-details task-details {{completeClass}} {{#userIsClient}}client-task-details{{/userIsClient}}">
+        <div class="item-details-inner">
+            <div class="task-main item-details-main ">
+                {{#userIsAdmin}}
+                <div class="is-task-completed "></div>
+                {{/userIsAdmin}}
+
+                <div class="task-contents">
+                    <div class="task-text">{{task}}</div>
+                    <div class="task-description">{{notes}}</div>
+
+                    <div class="task-actions">
+                        <a id="task-discuss" class="button small"
+                           href="#projects/{{projectId}}/tasks/{{id}}/discussion">[[taskDetails.discuss]]</a>
+
+                        {{#canDeleteTask}}
+                        <div id="task-delete" class="button small danger" title="[[taskDetails.deleteTitle]]">
+                            [[taskDetails.delete]]
+                        </div>
+                        {{/canDeleteTask}}
+
+                        {{#canUpdateTask}}
+                        <div id="task-add-file" class="button small disabled">[[taskDetails.addFile]]</div>
+                        {{/canUpdateTask}}
+
+                        {{#canDeleteTask}}
+                        <div id="task-edit" class="button small" title="[[taskDetails.editTitle]]">
+                            [[taskDetails.edit]]
+                        </div>
+                        {{/canDeleteTask}}
+
+
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="tabs-outer">
+                <dl class="tabs">
+                    <dd class="active"><a href="#task-details-tab">[[taskDetails.details]]</a></dd>
+
+                    {{#canUpdateTask}}
+                    <dd class=""><a href="#task-timer-tab">[[taskDetails.timer]]</a></dd>
+                    {{/canUpdateTask}}
+                    <dd class="hide-for-small"><a href="#task-attachment-tab">[[taskDetails.attachments]] (<span
+                            class="attachment-count">0</span>)</a></dd>
+                </dl>
+                <ul class="tabs-content">
+                    <li class="active" id="task-details-tab">
+                        <div class="task-meta">
+                            <div class="assigned-to"><span>[[taskDetails.assigned]]:</span>{{assignedToName}}</div>
+                            <div class="status"><span>[[taskDetails.status]]:</span>{{statusText}}</div>
+                            <div class="due-date"><span>[[taskDetails.dueDate]]:</span>{{dueDateText}}</div>
+
+                            {{#if isComplete}}
+                            <div class="due-date"><span>Completed Date:</span>{{completedDateText}}
+                            </div>
+                            {{/if}}
+
+                            {{#if formattedTotalTime}}
+                            <div class="due-date"><span>Total Time:</span>{{formattedTotalTime}}
+                            </div>
+                            {{/if}}
+
+                            <div class="task-weight">
+                                <span>[[taskDetails.taskWeight]]:</span>
+
+                                <div class="task-weight-value">
+                                    <div class="value">{{weightText}}</div>
+                                    <a id="change-task-weight" class="icon ti-pencil"
+                                       title="[[taskDetails.taskWeightTitle]]"></a>
+                                </div>
+                            </div>
+
+                            <!--<div class="due-date"><span>Total Time:</span>3 hours, 15 minutes</div>-->
+                        </div>
+                    </li>
+
+                    {{#canUpdateTask}}
+                    <li id="task-timer-tab">
+                        <div id="timer">
+                            <div id="inactive-timer">- [[taskDetails.inactiveTimer]] -</div>
+                            <div id="elapsed-time"></div>
+                            <div id="enter-time" class="button">[[taskDetails.enterTime]]</div>
+                            <div id="start-timer" class="button dark">[[taskDetails.startTimer]]</div>
+                            <div id="stop-timer" class="button dark">[[taskDetails.stopTimer]]</div>
+
+                        </div>
+
+                        <div id="task-time-entries" class="hidden"></div>
+                    </li>
+                    {{/canUpdateTask}}
+
+                    <li id="task-attachment-tab">
+                        <ul class="attachment-list">
+                            <li>[[taskDetails.noAttachments]]</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+<div id="template-task-time-entries">
+    <ul>
+        <li class="header">
+            <div class="time-entry-details">
+                <div>[[taskDetails.timeEntryDate]]</div>
+                <div>[[taskDetails.timeEntryUser]]</div>
+                <div>[[taskDetails.timeEntryTime]]</div>
+            </div>
+        </li>
+        {{#timeEntries}}
+        <li data-id="{{id}}">
+            <div class="time-entry-details">
+                <div class="time-entry-date">{{startDateText}}</div>
+                <div class="time-entry-user">{{userName}}</div>
+                <div class="time-entry-time">{{timeText}}</div>
+            </div>
+            <div class="time-entry-delete ti-trash" title="[[taskDetails.deleteTimeEntryTitle]]"></div>
+        </li>
+        {{/timeEntries}}
+    </ul>
+</div>
+
+<div id="template-task-time-entry">
+    <li data-id="{{id}}" class="new">
+        <div class="time-entry-details">
+            <div class="time-entry-date">{{startDateText}}</div>
+            <div class="time-entry-user">{{userName}}</div>
+            <div class="time-entry-time">{{timeText}}</div>
+        </div>
+        <div class="time-entry-delete" title="[[taskDetails.deleteTimeEntryTitle]]"></div>
+    </li>
+</div>
+
+
+<div id="template-form-time-entry">
+    <form id="time-entry-form" action="#" method="post" data-model="timeEntry" novalidate>
+        <div class="fields">
+            <div class="field">
+                <label for="">[[timeEntryForm.hours]]</label>
+                <input type="text" name="hours" placeholder="[[timeEntryForm.hoursPlaceholder]]">
+            </div>
+
+            <div class="field">
+                <label for="">[[timeEntryForm.minutes]]</label>
+                <input type="text" name="minutes" placeholder="[[timeEntryForm.minutesPlaceholder]]">
+            </div>
+
+            <div class="field">
+                <label for="">[[timeEntryForm.seconds]]</label>
+                <input type="text" name="seconds" placeholder="[[timeEntryForm.secondsPlaceholder]]">
+            </div>
+        </div>
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+
+<div id="template-task-attachment">
+    <ol class="attachment-list">
+        {{#files}}
+        <li><a href="#projects/{{project_id}}/files/{{id}}">{{name}}</a></li>
+        {{/files}}
+    </ol>
+</div>
+
+<div id="template-document-viewer">
+    <div class="document-viewer-wrapper dv-markup clearfix">
+        <div class="document-viewer-outer dv-markup clearfix">
+            <div class="document-viewer dv-markup clearfix"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="template-document-viewer-error">
+    <div class="error-loading">[[fileView.errorLoading]]</div>
+</div>
+
+<div id="template-document-viewer-unsupported-type">
+    <div class="unsupported-type">[[fileView.unsupportedType]]</div>
+</div>
+
+<div id="template-file-list-preview">
+    <li class="file-list-preview">
+
+        <div class="file-dv"><span class="loading-message">[[fileView.loading]]</span></div>
+
+        <div class="file-meta-wrapper">
+            <div class="file-name">{{name}}</div>
+            <!--<div class="file-options"><span class="caret caret-down"></span>-->
+
+            <!--<ul class="dropdown-menu">-->
+            <!--<li><a href="#">Download</a></li>-->
+            <!--<li class="divider"></li>-->
+            <!--<li><a href="#">Delete</a></li>-->
+            <!--</ul>-->
+            <!--</div>-->
+            <div class="file-meta"><span>[[fileView.uploaded]]:</span> {{formattedUploadDate}}</div>
+        </div>
+    </li>
+</div>
+
+<div id="template-file-list-simple-tiles">
+    <ul id="file-list-simple-tiles">
+        {{#files}}
+        <li class="file-simple-tile {{type}}" title="{{name}}" data-id="{{id}}">
+            <div class="file-icon"></div>
+            <div class="file-name">{{name}}</div>
+        </li>
+        {{/files}}
+    </ul>
+</div>
+
+<div id="template-file">
+    <div class="file-view">
+
+
+        <div class="file-dv unfloat-on-mobile"></div>
+
+        <div class="file-meta-wrapper unfloat-on-mobile">
+            <div class="file-name">{{name}}</div>
+
+            <div class="file-actions">
+                <a href="{{url}}" class="download-button inactive button blue small">[[fileView.download]]</a>
+
+
+                <div class="right">
+                    <a href="#projects/{{projectId}}/files/{{id}}/discussion"
+                       class="button small">[[fileView.discuss]]</a>
+                    {{#canUpdateFile}}
+                    <a href="#" class="edit-button button small">[[fileView.editNotes]]</a>
+                    <a href="#" class="delete-button button danger small">[[fileView.delete]]</a>
+                    {{/canUpdateFile}}
+                </div>
+
+
+            </div>
+            <hr/>
+
+            <div class="file-notes">
+                <h6>[[fileView.notes]]</h6>
+
+                <p class="notes-content">{{notes}}</p>
+            </div>
+
+            <div class="file-meta"><span>[[fileView.uploadedDate]]:</span> {{formattedUploadDate}}</div>
+            <div class="file-meta"><span>[[fileView.uploadedBy]]:</span> {{uploadedBy}}</div>
+            <div class="file-meta"><span>[[fileView.size]]:</span> {{sizeKilobytes}}kb</div>
+
+
+            <div id="file-notes">
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+<div id="template-files-view-type">
+    <ul id="file-view-type" class="button-set">
+        <li id="line-items-view"><span class="ti-view-list"></span></li>
+        <li id="simple-tiles-view"><span class=" ti-layout-grid3"></span></li>
+        <li id="tiles-view"><span class=" ti-layout-grid2"></span></li>
+    </ul>
+</div>
+
+<div id="template-form-edit-file-notes">
+    <form action="#" method="post" data-model="file" novalidate>
+        <div class="field">
+            <label for="">[[fileView.notes]]</label>
+            <textarea required="required" name="notes">{{notes}}</textarea>
+
+        </div>
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+<div id="template-invoice-editor">
+    <div class="invoice-editor invoice editable">
+        <div class="invoice-company-details">
+            <div class="invoice-logo">
+                <!--<img src="{{company.logo}}" alt="{{company.name}}"/>-->
+            </div>
+            <div class="invoice-contact-info">
+                <div>{{company.address1}}</div>
+                <div>{{company.address2}}</div>
+                <div>{{company.phone}}</div>
+            </div>
+        </div>
+
+        <div>[[invoiceView.to]]:</div>
+        <div class="invoice-details">
+            <div class="invoice-client">
+
+                <div class="invoice-client-name">{{client.name}}</div>
+                <div class="invoice-client-info">{{client.address1}}</div>
+                <div class="invoice-client-info">{{client.address2}}</div>
+            </div>
+
+            <div class="invoice-meta">
+                <div><span>[[invoiceView.number]]</span>{{number}}</div>
+                <div class="invoice-date">
+                    <span>[[invoiceView.date]]</span>
+
+                    <div class="date-outer">
+                        <span class="date-text-placeholder">{{dateText}}</span>
+                        <input id="invoice-date-input" class="transparent" type="text"
+                               title="[[invoiceView.changeDateTitle]]"
+                               value="{{dateText}}">
+                    </div>
+
+                </div>
+                <div class="invoice-status {{statusClass}}"><span>[[invoiceView.status]]</span><span
+                        class="status-text">{{statusText}}</span>
+                </div>
+            </div>
+
+            <div class="invoice-due-date">
+                <div class="right">
+                    <div>[[invoiceView.due]]:</div>
+                    <div class="due-date">
+                        <span class="due-date-text-placeholder">{{dueDateText}}</span>
+                        <input id="invoice-due-date-input" class="transparent" type="text"
+                               title="[[invoiceView.changeDateTitle]]"
+                               value="{{dueDateText}}">
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <ul class="line-items connected-sortable">
+            <li class="invoice-items-header">
+                <div class="invoice-item">[[invoiceView.item]]</div>
+                <div class="invoice-quantity">[[invoiceView.quantity]]</div>
+                <div class="invoice-rate">[[invoiceView.rate]]</div>
+                <div class="invoice-subtotal">[[invoiceView.subtotal]]</div>
+            </li>
+        </ul>
+
+        <div class="add-item">
+            <div id="add-invoice-item" class="button blue small">[[invoiceView.addItem]]</div>
+        </div>
+
+        <div class="invoice-summary row-container">
+
+            <div class="summary-header invoice-row">
+                [[invoiceView.summary]]
+            </div>
+
+            <div class="invoice-row">
+                <div>[[invoiceView.subtotal]]</div>
+                <div id="invoice-subtotal">{{formattedSubtotal}}</div>
+            </div>
+            <div class="invoice-row">
+                <div>[[invoiceView.tax]]<span class="tax-rate-text">({{formattedTaxRate}})</span></div>
+                <div id="invoice-tax">{{formattedTax}}</div>
+            </div>
+            <div class="invoice-row">
+                <div>[[invoiceView.total]]</div>
+                <div id="invoice-total">{{formattedTotal}}</div>
+            </div>
+
+        </div>
+
+        <div class="invoice-terms">
+            [[invoiceView.terms]]
+        </div>
+    </div>
+</div>
+
+<div id="template-invoice-line-item">
+    <li class="line-item editing">
+        <div class="invoice-item"><input name="item" class="line-item-input"/></div>
+        <div class="invoice-quantity"><input name="quantity" class="line-item-input"/></div>
+        <div class="invoice-rate"><input name="rate" class="line-item-input" value="{{rate}}"/></div>
+        <div class="invoice-subtotal">&nbsp;</div>
+        <div class="line-item-actions">
+            <div class="edit-item" title="[[invoiceView.editItem]]"></div>
+            <div class="delete-item" title="[[invoiceView.deleteItem]]"></div>
+        </div>
+    </li>
+</div>
+
+
+<div id="template-invoice">
+    <div class="invoice">
+        <div class="invoice-company-details">
+            <div class="invoice-logo">
+                <!--<img src="{{company.logo}}" alt="{{company.name}}"/>-->
+            </div>
+            <div class="invoice-contact-info">
+                <div>{{company.address1}}</div>
+                <div>{{company.address2}}</div>
+                <div>{{company.phone}}</div>
+            </div>
+        </div>
+
+        <div>[[invoiceView.to]]:</div>
+        <div class="invoice-details">
+            <div class="invoice-client">
+
+                <div class="invoice-client-name">{{client.name}}</div>
+                <div class="invoice-client-info">{{client.address1}}</div>
+                <div class="invoice-client-info">{{client.address2}}</div>
+            </div>
+
+            <div class="invoice-meta">
+                <div><span>[[invoiceView.numberShort]]</span>{{number}}</div>
+                <div>
+                    <span>[[invoiceView.dateShort]]</span>
+
+                    <div class="date-outer">{{dateText}}
+
+                    </div>
+
+                </div>
+                <div class="invoice-status {{statusClass}}"><span>Status</span><span
+                        class="status-text">{{statusText}}</span></div>
+            </div>
+
+            <div class="invoice-due-date">
+                <div class="right">
+                    <div>[[invoiceView.due]]:</div>
+                    <div class="due-date">{{dueDateText}}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <ul class="line-items">
+            <li class="invoice-items-header">
+                <div class="invoice-item">[[invoiceView.item]]</div>
+                <div class="invoice-quantity">[[invoiceView.quantity]]</div>
+                <div class="invoice-rate">[[invoiceView.rate]]</div>
+                <div class="invoice-subtotal">[[invoiceView.subtotal]]</div>
+            </li>
+        </ul>
+
+
+        <div class="invoice-summary row-container">
+
+            <div class="summary-header invoice-row">
+                [[invoiceView.summary]]
+            </div>
+
+            <div class="invoice-row">
+                <div>[[invoiceView.subtotal]]</div>
+                <div>{{formattedSubtotal}}</div>
+            </div>
+            <div class="invoice-row">
+                <div>[[invoiceView.tax]] <span class="tax-rate-text">({{formattedTaxRate}})</span></div>
+                <div>{{formattedTax}}</div>
+            </div>
+            <div class="invoice-row">
+                <div>[[invoiceView.total]]</div>
+                <div class="invoice-total">{{formattedTotal}}</div>
+            </div>
+        </div>
+
+        <div class="invoice-terms">
+            [[invoiceView.terms]]
+        </div>
+    </div>
+</div>
+
+
+<div id="template-invoice-preview">
+
+    <div class="alert-outer">
+        <div class="preview-notification alert">
+            {{#userIsAdmin}}
+            [[invoiceView.adminPreviewNotice]] &nbsp;<a class="button small close-preview">[[invoiceView.adminPreviewNoticeClose]]</a>
+            {{/userIsAdmin}}
+
+            {{#userIsClient}}
+            <a class="button small close-preview">[[invoiceView.clientPreviewNoticeClose]]</a>
+            [[invoiceView.clientPreviewNotice]]
+            {{/userIsClient}}
+        </div>
+    </div>
+
+
+    <div class="invoice preview">
+        <div class="invoice-company-details">
+            <div class="invoice-logo">
+                <!--<img src="{{company.logo}}" alt="{{company.name}}"/>-->
+            </div>
+            <div class="invoice-contact-info">
+                <div>{{company.address1}}</div>
+                <div>{{company.address2}}</div>
+                <div>{{company.phone}}</div>
+            </div>
+        </div>
+
+        <div class="invoice-to">[[invoiceView.to]]:</div>
+        <div class="invoice-details">
+            <div class="invoice-client">
+
+                <div class="invoice-client-name">{{client.name}}</div>
+                <div class="invoice-client-info">{{client.address1}}</div>
+                <div class="invoice-client-info">{{client.address2}}</div>
+            </div>
+
+            <div class="invoice-meta">
+                <div><span>[[invoiceView.numberShort]].</span>{{number}}</div>
+                <div>
+                    <span>[[invoiceView.dateShort]]</span>
+
+                    <div class="date-outer">{{dateText}}
+
+                    </div>
+
+                </div>
+                <div class="invoice-status {{statusClass}}"><span>[[invoiceView.statusShort]]</span><span
+                        class="status-text">{{statusText}}</span></div>
+            </div>
+
+            <div class="invoice-due-date">
+                <div class="right">
+                    <div>[[invoiceView.due]]:</div>
+                    <div class="due-date">{{dueDateText}}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <ul class="line-items">
+            <li class="invoice-items-header">
+                <div class="invoice-item">[[invoiceView.item]]</div>
+                <div class="invoice-quantity">[[invoiceView.quantity]]</div>
+                <div class="invoice-rate">[[invoiceView.rate]]</div>
+                <div class="invoice-subtotal">[[invoiceView.subtotal]]</div>
+            </li>
+        </ul>
+
+        <div class="invoice-summary row-container">
+
+            <div class="summary-header invoice-row">
+                [[invoiceView.summary]]
+            </div>
+            <div class="invoice-row">
+                <div>[[invoiceView.subtotal]]</div>
+                <div>{{formattedSubtotal}}</div>
+            </div>
+            <div class="invoice-row">
+                <div>[[lang.invoiceView.tax ]]<span class="tax-rate-text">({{formattedTaxRate}})</span></div>
+                <div>{{formattedTax}}</div>
+            </div>
+            <div class="invoice-row">
+                <div>[[invoiceView.total]]</div>
+                <div class="invoice-total">{{formattedTotal}}</div>
+            </div>
+        </div>
+
+        <div class="invoice-terms">
+            [[invoiceView.terms]]
+        </div>
+    </div>
+</div>
+
+
+<div id="template-invoice-builder">
+    <div id="invoice-builder">
+        <div id="choose-invoice-tasks"></div>
+        <div id="invoice-preview"></div>
+    </div>
+</div>
+
+
+<div id="template-invoice-editor-menu">
+    <ul class="invoice-editor-menu {{menuClass}}">
+        <li id="save-invoice" class="button blue small">[[invoiceEditor.doneButton]]</li>
+        <li id="close-import-tasks" class="button blue small">[[invoiceEditor.saveButton]]</li>
+        <li id="import-tasks" class="button small">[[invoiceEditor.importTasksButton]]</li>
+        <li id="delete-invoice" class="button small">[[invoiceEditor.deleteButton]]</li>
+    </ul>
+</div>
+
+<div id="template-invoice-details">
+    <div id="invoice-details">
+        <div class="invoice-wrapper unfloat-on-mobile"></div>
+        <div class="invoice-meta-wrapper unfloat-on-mobile">
+            <div class="client-name">{{client.name}}</div>
+            <div class="invoice-due-date"><span>[[invoiceDetails.number]]:</span> {{number}}</div>
+            <div class="invoice-due-date"><span>[[invoiceDetails.dueDate]]:</span> {{dueDateText}}</div>
+            <div class="invoice-status {{statusClass}}"><span>[[invoiceDetails.status]]:</span> <span
+                    class="status-text">{{statusText}}</span></div>
+            <div class="invoice-date-sent"><span>[[invoiceDetails.dateSent]]:</span> {{dateSentText}}</div>
+            <div class="invoice-date-sent"><span>[[invoiceDetails.balance]]:</span>{{formattedBalance}}</div>
+            <hr>
+
+            <div class="file-actions">
+
+                {{#userIsAdmin}}
+                <a class="send-button button blue small">[[invoiceDetails.sendButton]]</a>
+                {{/userIsAdmin}}
+
+                <a class="button small" href="#projects/{{projectId}}/invoices/{{id}}/discussion">[[invoiceDetails.discuss]]</a>
+
+                <div class="right">
+                    <a class="preview-button inactive button small">[[invoiceDetails.previewButton]]</a>
+                    <a class="download-button inactive button small">[[invoiceDetails.downloadButton]]</a>
+
+                    {{#userIsAdmin}}
+                    <a class="edit-button button small">[[invoiceDetails.editButton]]</a>
+                    <a class="delete-button button danger small">[[invoiceDetails.deleteButton]]</a>
+                    {{/userIsAdmin}}
+                </div>
+
+                <a class="pay-button button blue small">[[invoiceDetails.payButton]]</a>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<div id="template-user-quick-access-panel">
+    <div class="user-quick-access-panel">
+        <div class="quick-access-top">
+            <div class="user-image user-image-large">
+                <a href="#"></a>
+            </div>
+            <h4>{{first_name}} {{last_name}}</h4>
+        </div>
+        <div class="quick-access-content">
+            <ul>
+                <li><span class="icon ti-user"></span><a href="#users/{{id}}">[[userQuickAccessView.goToProfile]]</a>
+                </li>
+                <li><span class="icon ti-lock"></span><a id="change-password" href="#">[[userQuickAccessView.changePassword]]</a>
+                </li>
+                <li><span class="icon ti-image"></span>
+
+                    <div id="quick-access-change-photo" class="button clear-button">
+
+                        [[userQuickAccessView.changeProfilePhoto]]
+                        <input id="fileupload" type="file" name="files[]" multiple>
+                    </div>
+                </li>
+                <li><span class="icon ti-thumb-up"></span><a
+                        href="#admin/feedback">[[userQuickAccessView.referAFriend]]</a></li>
+                <li><span class="icon ti-power-off"></span><a href="#logout">[[userQuickAccessView.logout]]</a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<div id="template-invoice-builder-task-list">
+    <div id="invoice-builder-task-list" class="nano top">
+        <div class="content">
+            <div class="task-list-menu"><a class="show-completed-tasks" href="#">[[invoiceEditor.showCompetedTasks]]</a>
+            </div>
+            <ul id="completed-tasks-list" class="list condensed task-list"></ul>
+            <ul id="incomplete-tasks-list" class="list condensed task-list connected-sortable">
+                {{#tasks}}
+                <li class="task {{statusClass}}" data-id={{id}}>
+                    <div class="task-details">{{task}}</div>
+                </li>
+                {{/tasks}}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="template-invoice-builder-task-list-task">
+    <li class="task {{statusClass}}" data-id={{id}}>
+        <div class="task-details">{{task}}</div>
+    </li>
+</div>
+
+<div id="template-invoice-builder-line-item">
+    <li class="line-item">
+        <div class="invoice-item">{{item}}</div>
+        <div class="invoice-quantity">{{quantity}}</div>
+        <div class="invoice-rate">{{rate}}</div>
+        <div class="invoice-subtotal">{{formattedSubtotal}}</div>
+        <div class="line-item-actions">
+            <div class="edit-item" title="[[invoiceEditor.editItemTitle]]"></div>
+            <div class="delete-item" title="[[invoiceEditor.deleteItemTitle]]"></div>
+        </div>
+    </li>
+</div>
+
+<div id="template-sidebar">
+
+    <div id="sidebar-wrapper">
+        <div id="logo-space"></div>
+        <div id="current-user-space"></div>
+        <div id="global-search-space"></div>
+        <div id="sidebar-menu">
+            <ul id="sidebar-menu-items">
+                <li id="dashboard-tab"><span class="sidebar-icon ti-home "></span><a
+                        href="#dashboard"><span>[[sidebar.dashboard]]</span></a></li>
+                <li id="projects-tab"><span class="sidebar-icon ti-briefcase"></span><a
+                        href="#projects"><span>[[sidebar.projects]]</span></a></li>
+                <li id="invoices-tab"><span class="sidebar-icon ti-wallet"></span><a
+                        href="#invoices"><span>[[sidebar.invoices]]</span></a></li>
+
+                {{#userIsAdmin}}
+                <li id="reporting-tab"><span class="sidebar-icon ti-stats-up"></span><a href="#reporting"><span>[[sidebar.reporting]]</span></a>
+                </li>
+                <li id="clients-tab"><span class="sidebar-icon ti-user"></span><a
+                        href="#clients"><span>[[sidebar.clients]]</span></a></li>
+                {{/userIsAdmin}}
+
+                <li id="files-tab"><span class="sidebar-icon ti-files"></span><a
+                        href="#files"><span>[[sidebar.files]]</span></a>
+                </li>
+                <li id="tasks-tab"><span class="sidebar-icon ti-agenda"></span><a
+                        href="#tasks"><span>[[sidebar.tasks]]</span></a>
+                </li>
+                <li id="users-tab"><span class="sidebar-icon ti-star"></span><a
+                        href="#users"><span>[[sidebar.users]]</span></a>
+                </li>
+
+                {{#userIsAdmin}}
+                <li id="templates-tab"><span class="sidebar-icon ti-folder"></span><a href="#templates"><span>[[sidebar.projectTemplates]]</span></a>
+                </li>
+                <li id="admin-tab"><span class="sidebar-icon ti-settings"></span><a href="#admin"><span>[[sidebar.admin]]</span></a>
+                </li>
+                {{/userIsAdmin}}
+            </ul>
+
+            <div id="sidebar-more"><span class="sidebar-icon ion-more ti-more-alt"></span><span id="sidebar-more-text">[[sidebar.more]]</span>
+            </div>
+            <div id="sidebar-menu-overflow"></div>
+
+        </div>
+
+
+        <div id="running-timer-space"></div>
+        <div id="footer-space">
+            <!--<a href="#settings" title="Settings"><span class="icon-settings"></span></a>-->
+            <!--<a href="#logout" title="Logout"><span class="icon-switch"></span></a>-->
+        </div>
+    </div>
+</div>
+
+<div id="template-client-details">
+    <div class="item-details client-details">
+        <div class="item-details-inner">
+
+            <div class="item-details-main">
+                <div class="client-contact-info unfloat-on-mobile">
+                    <h6>[[clientDetails.title]]</h6>
+
+                    <ul class="item-details-list">
+
+                        <li class="address-details">
+                            <div class="icon ti-id-badge"></div>
+                            <div class="address">{{address1}}<br/>{{address2}}</div>
+                        </li>
+                        <li class="phone-details">
+                            <div class="icon ti-microphone"></div>
+                            {{phone}}
+                        </li>
+                        <li class="website-details">
+                            <div class="icon ti-shine"></div>
+                            <a href="http://{{website}}" target="_blank">{{website}}</a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="client-user-details unfloat-on-mobile">
+
+
+                    <ul class="client-actions">
+                        <li>
+                            <span id="add-new-user" href="#" class="button">
+                                <span class="icon ti-user"></span>[[clientDetails.addNewUser]]
+                            </span>
+                        </li>
+                        <li>
+                            <span id="edit-client" href="#" class="button">
+                                <span class="icon ti-pencil"></span>[[clientDetails.editClient]]
+                            </span>
+                        </li>
+                        <li>
+                            <span id="delete-client" href="#" class="button">
+                                <span class="icon ti-na"></span>[[clientDetails.deleteClient]]
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+
+
+                <div class="item-notes client-notes">
+
+                </div>
+            </div>
+            <div class="tabs-outer">
+                <dl class="tabs">
+                    <dd class="active"><a href="#client-projects-tab">[[clientDetails.projectsTab]]</a></dd>
+                    <dd class=""><a href="#client-users-tab">[[clientDetails.usersTab]]</a></dd>
+                    <dd class="hide-for-small"><a href="#client-invoices-tab">[[clientDetails.invoicesTab]]</a></dd>
+                </dl>
+                <ul class="tabs-content">
+                    <li class="active" id="client-projects-tab">
+                        <ul class="attachment-list">
+                            <li>[[clientDetails.noProjects]]</li>
+                        </ul>
+                    </li>
+
+                    <li id="client-users-tab">
+                        <ul class="attachment-list">
+                            <li>[[clientDetails.noUsers]]</li>
+                        </ul>
+                    </li>
+
+
+                    <li id="client-invoices-tab">
+                        <ul class="attachment-list">
+                            <li>[[clientDetails.noInvoices]]</li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+
+<div id="template-client-projects">
+    <div class="list condensed project-list">
+        <div class="list-main-header">
+            <div class="project-name">[[clientDetails.projectName]]</div>
+            <div class="project-due-date">[[clientDetails.projectDueDate]]</div>
+            <div class="project-status">[[clientDetails.projectStatus]]</div>
+        </div>
+        <ul class="list condensed">
+            {{#projects}}
+            <li class="{{statusText}}" data-type="{{type}}" data-id={{id}}>
+                <div class="project-name">{{name}}</div>
+                <div class="project-due-date">{{formattedDueDate}}</div>
+                <div class="project-status">{{formattedStatusText}}</div>
+            </li>
+            {{/projects}}
+        </ul>
+
+    </div>
+</div>
+
+<div id="template-client-users">
+    <div class="list condensed user-list">
+        <div class="list-main-header">
+            <div class="user-image-container"></div>
+            <div class="user-name">[[clientDetails.userName]]</div>
+            <div class="user-email">[[clientDetails.userEmail]]</div>
+        </div>
+        <ul class="list condensed">
+            {{#users}}
+            <li class="{{statusClass}}" data-type="{{type}}" data-id={{id}}>
+                <div class="user-image-container">
+                    <a class="user-image"></a>
+                </div>
+                <div class="user-name">{{name}}</div>
+                <div class="user-email">{{email}}</div>
+            </li>
+            {{/users}}
+        </ul>
+    </div>
+</div>
+
+<div id="template-client-invoices">
+    <div class="list condensed invoice-list">
+        <div class="list-main-header">
+            <div class="invoice-number">[[clientDetails.invoiceNumber]]</div>
+            <div class="invoice-total">[[clientDetails.invoiceTotal]]</div>
+            <div class="invoice-balance">[[clientDetails.invoiceBalance]]</div>
+            <div class="invoice-status">[[clientDetails.invoiceStatus]]</div>
+            <div class="invoice-due-date">[[clientDetails.invoiceDueDate]]</div>
+        </div>
+
+        <ul class="">
+            {{#invoices}}
+            <li class="{{statusClass}}" data-type="{{type}}" data-id={{id}}>
+                <div class="invoice-number">{{number}}</div>
+                <div class="invoice-total">{{formattedTotal}}</div>
+                <div class="invoice-balance">{{formattedBalance}}</div>
+                <div class="invoice-status {{statusClass}}"><span class="status-text">{{statusText}}</span></div>
+                <div class="invoice-due-date">{{dueDateHumanized}}</div>
+            </li>
+            {{/invoices}}
+        </ul>
+    </div>
+</div>
+
+
+<div id="template-form-client-primary-contact">
+    <form action="#" method="post" data-model="client" novalidate>
+
+        <div class="field">
+            <select name="primary_contact_id" data-placeholder="[[clientDetails.choosePrimaryContactPlaceholder]]"
+                    required="required">
+                <option></option>
+            </select>
+        </div>
+
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+<div id="template-form-client-user">
+    <form id="add-client-user" action="#" method="post" data-model="user" novalidate>
+
+        {{#if chooseClient}}
+        <div class="field">
+
+            <label for="">[[clientDetails.chooseClient]]</label>
+            <select name="client_id" id="">
+                <option></option>
+            </select>
+
+        </div>
+        {{else}}
+
+        <input type="hidden" name="client_id" value="{{id}}">
+
+        {{/if}}
+
+        <div class="field">
+            <label for="">[[clientDetails.firstName]]</label>
+            <input type="text" required="required" name="first_name">
+
+        </div>
+
+        <div class="field">
+            <label for="">[[clientDetails.lastName]]</label>
+            <input type="text" required="required" name="last_name">
+
+        </div>
+
+        <div class="field">
+            <label for="">[[clientDetails.emailAddress]]</label>
+            <input type="text" required="required" name="email">
+        </div>
+
+        <span id="show-form-details" class="button tiny flat">[[clientDetails.addAdditionalDetails]]</span>
+        <span id="hide-form-details" class="button tiny flat">[[clientDetails.hideAdditionalDetails]]</span>
+
+        <div id="form-more">
+            <div class="field">
+                <label for="">[[clientDetails.address1]]</label>
+                <input type="text" name="address1">
+            </div>
+
+            <div class="field">
+                <label for="">[[clientDetails.address2]]</label>
+                <input type="text" name="address2">
+            </div>
+
+            <div class="field">
+                <label for="">[[clientDetails.phone]]</label>
+                <input type="text" name="phone">
+            </div>
+        </div>
+
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+<div id="template-form-user-edit">
+    <form id="edit-user" action="#" method="post" data-model="user" novalidate>
+
+        <div class="field">
+            <label for="">[[clientDetails.firstName]]</label>
+            <input type="text" required="required" name="first_name">
+
+        </div>
+
+        <div class="field">
+            <label for="">[[clientDetails.lastName]]</label>
+            <input type="text" required="required" name="last_name">
+
+        </div>
+
+        <div class="field">
+            <label for="">[[clientDetails.emailAddress]]</label>
+            <input type="text" required="required" name="email">
+        </div>
+
+        <span id="show-form-details" class="button tiny flat">[[clientDetails.addAdditionalDetails]]</span>
+        <span id="hide-form-details" class="button tiny flat">[[clientDetails.hideAdditionalDetails]]</span>
+
+        <div id="form-more">
+            <div class="field">
+                <label for="">[[clientDetails.address1]]</label>
+                <input type="text" name="address1">
+            </div>
+
+            <div class="field">
+                <label for="">[[clientDetails.address2]]</label>
+                <input type="text" name="address2">
+            </div>
+
+            <div class="field">
+                <label for="">[[clientDetails.phone]]</label>
+                <input type="text" name="phone">
+            </div>
+        </div>
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+<div id="template-form-client">
+    <form id="add-client" action="#" method="post" data-model="client" novalidate>
+
+        <div class="field">
+            <label for="">[[clientForm.name]]</label>
+            <input type="text" required="required" name="name">
+
+        </div>
+
+        <h4>[[clientForm.primaryContact]]</h4>
+
+        <div class="field">
+            <label for="">[[clientForm.contactFirstName]]</label>
+            <input type="text" required="required" name="client[first_name]">
+        </div>
+
+        <div class="field">
+            <label for="">[[clientForm.contactLastName]]</label>
+            <input type="text" required="required" name="client[last_name]">
+
+        </div>
+
+        <div class="field">
+            <label for="">[[clientForm.contactEmail]]</label>
+            <input type="text" required="required" name="client[email]">
+        </div>
+
+        <span id="show-form-details" class="button tiny flat">[[clientForm.addAdditionalDetails]]</span>
+        <span id="hide-form-details" class="button tiny flat">[[clientForm.hideAdditionalDetails]]</span>
+
+        <div id="form-more">
+            <div class="field">
+                <label for="">[[clientForm.address1]]</label>
+                <input type="text" name="address1">
+            </div>
+
+            <div class="field">
+                <label for="">[[clientForm.address2]]</label>
+                <input type="text" name="address2">
+            </div>
+
+            <div class="field">
+                <label for="">[[clientForm.phone]]</label>
+                <input type="text" name="phone">
+            </div>
+
+            <div class="field">
+                <label for="">[[clientForm.website]]</label>
+                <input type="text" name="website">
+            </div>
+        </div>
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+
+<div id="template-form-client-edit">
+    <form id="add-client" action="#" method="post" data-model="client" novalidate>
+
+        <div class="field">
+            <label for="">[[clientForm.name]]</label>
+            <input type="text" required="required" name="name">
+
+        </div>
+
+        <div class="field">
+            <label for="">[[clientForm.address1]]</label>
+            <input type="text" name="address1">
+        </div>
+
+        <div class="field">
+            <label for="">[[clientForm.address2]]</label>
+            <input type="text" name="address2">
+        </div>
+
+        <div class="field">
+            <label for="">[[clientForm.phone]]</label>
+            <input type="text" name="phone">
+        </div>
+
+        <div class="field">
+            <label for="">[[clientForm.website]]</label>
+            <input type="text" name="website">
+        </div>
+
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+<div id="template-user-details">
+    <div class="item-details user-details">
+        <div class="item-details-inner">
+
+            <div class="item-details-main">
+                <div class="section">
+                    <div class="user-image">
+                        <div class="user-image-inner"></div>
+
+
+                    </div>
+                    <div class="user-contact-info">
+
+                        {{#isClient}}
+                        <h6>[[userDetails.organization]]</h6>
+
+                        <ul class="item-details-list">
+                            <li class="email-details">
+                                <a href="#clients/{{clientId}}">{{clientName}}</a>
+                            </li>
+                        </ul>
+                        {{/isClient}}
+
+
+                        <h4 class="role">{{role}}</h4>
+                        <br>
+
+
+                        <h6>[[userDetails.userDetailsTitle]]</h6>
+
+                        <ul class="item-details-list">
+                            <li class="email-details">
+                                <div class="icon ti-email"></div>
+                                {{email}}
+                            </li>
+                            <li class="address-details">
+                                <div class="icon ti-id-badge"></div>
+                                <div class="address">{{address1}}<br/>{{address2}}</div>
+                            </li>
+                            <li class="phone-details">
+                                <div class="icon ti-microphone"></div>
+                                {{phone}}
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section">
+                    <hr>
+                    <div class="user-actions">
+
+                        <div id="change-photo" class="button small">[[userDetails.changePhoto]]
+                            <input id="fileupload" type="file" name="files[]">
+                        </div>
+
+                        <div id="change-password-button" class="button small">[[userDetails.changePassword]]</div>
+                    </div>
+
+                    {{#canDeleteUser}}
+                    <div class="admin-user-actions">
+                        <div id="send-password" class="button  small">[[userDetails.sendPassword]]</div>
+                        <div id="edit-user" class="button small">[[userDetails.editUser]]</div>
+                        <div id="delete-user" class="button  small">[[userDetails.deleteUser]]</div>
+                    </div>
+                    {{/canDeleteUser}}
+                </div>
+
+
+                <div class="item-notes user-notes">
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<div id="template-login">
+    <div class="login-overlay">
+        <div class="overlay-inner">
+            <h3 class="login-title">{{company}}</h3>
+
+            <div class="login-window">
+
+
+                <p>Please log in to access your account</p>
+
+                <div id="login-status">{{message}}</div>
+                <form method="post">
+
+                    <div class="login-fields">
+                        <div>
+                            <input type="text" name="username" id="username" placeholder="Email Address">
+                            <label class="icon ti-user" for="username"></label>
+                        </div>
+
+                        <div class="password-field">
+                            <input type="password" name="password" id="password" placeholder="Password">
+                            <label class="icon ti-lock" for="password"></label>
+                        </div>
+                    </div>
+
+
+                    <input class="" type="submit" value="Login">
+                    <a href="#forgot_password" class="forgot-password">Forgot Password?</a>
+                </form>
+
+            </div>
+
+
+            <div id="login-footer">
+                <a href="powered-by" href="https://duetapp.com">powered by Duet Project Management</a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div id="template-base-layout">
+    <div id="app-wrapper">
+        <div id="notification-space">
+
+        </div>
+        <div id="sidebar">
+
+        </div>
+        <div id="slide-out-panel-wrapper"></div>
+
+        <div class="window-outer">
+            <div class="window messages-closed"></div>
+        </div>
+        <div id="mobile-menu-button"><span class="ti-menu"></span></div>
+    </div>
+</div>
+
+
+<div id="template-current-user">
+    <div id="current-user" class="header-button">
+        <div class="user-image-wrapper"><a class="user-image" href="#profile"></a></div>
+
+        <div class="user-meta">
+            <div class="user-name">{{userName}}</div>
+            <div class="user-role">{{userRole}}</div>
+        </div>
+    </div>
+</div>
+
+<div id="template-global-search-input">
+    <div><input id="global-search" type="text" value="" name="q" class="text" placeholder="[[header.search]]"></div>
+</div>
+
+
+<div id="template-slide-out-panel">
+    <div class="slide-out-panel">
+
+    </div>
+</div>
+
+<div id="template-entity-list">
+    <div class="entity-list">
+        <div class="entity-list-header">
+            <h4 class="entity-list-title">{{entityName}}s</h4>
+
+            <div class="panel-sort-wrapper"></div>
+
+            <div class="panel-filter-wrapper"></div>
+
+            <div class="entity-actions">
+                <div class="entity-list-button">New {{entityName}}</div>
+            </div>
+        </div>
+        <div class="entity-list-content"></div>
+    </div>
+</div>
+
+
+<div id="template-modal">
+    <div class="modal-overlay">
+        <div class="modal">
+            <div class="modal-info">
+                <h3>{{title}}</h3>
+
+                <div class="close ti-close"></div>
+            </div>
+            {{content}}
+        </div>
+    </div>
+</div>
+
+<div id="template-form-project">
+    <form id="project-form" action="#" method="post" data-model="project" novalidate>
+        <div class="field">
+            <label for="">[[projectForm.name]]</label>
+            <input type="text" required="required" name="name">
+
+        </div>
+
+        <div class="field">
+            <label for="">[[projectForm.chooseClient]]</label>
+            <select name="client_id" data-placeholder=" " required="required">
+                <option></option>
+            </select>
+        </div>
+
+        <div>
+            <div class="field inline f_50">
+                <label for="">[[projectForm.startDate]]</label>
+                <input type="date" name="start_date_selection" required="required"/>
+            </div>
+
+            <div class="field inline f_50">
+                <label for="">[[projectForm.dueDate]]</label>
+                <input type="date" name="due_date_selection"/>
+            </div>
+        </div>
+
+        <input type="hidden" name="start_date"/>
+        <input type="hidden" name="due_date"/>
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+
+<div id="template-form-project-task">
+    <form id="new-task-form" action="#" method="post" data-model="task" novalidate>
+        <div class="field">
+            <label for="">[[taskForm.task]]</label>
+            <textarea rows=3 cols=20 name="task"></textarea>
+        </div>
+
+        <span class="add-notes clickable">[[taskForm.addNotes]]</span>
+
+        <div class="field  notes-wrapper">
+            <label for="">[[taskForm.notes]]</label>
+            <textarea rows=3 cols=20 name="notes"></textarea>
+        </div>
+
+        <div class="field">
+            <label>[[taskForm.assignedTo]]</label>
+            <select name="assigned_to" data-placeholder="[[taskForm.assignedTo]]">
+                <option></option>
+            </select>
+        </div>
+
+
+        <div class="field">
+            <label for="">[[taskForm.dueDate]]</label>
+            <input type="date" name="due_date_selection"/>
+        </div>
+
+        <input type="hidden" name="due_date"/>
+        <input type="hidden" name="project_id"/>
+
+        <input type="submit" value="[[form.submit]]">
+    </form>
+</div>
+
+<div id="template-form-task-weight">
+    <form id="task-weight-form" action="#" method="post" data-model="task" novalidate>
+        <div class="notification">[[taskWeightForm.pleaseWait]]</div>
+
+        <p>[[taskWeightForm.enterValue]] <span class="task-maximum-weight"><span
+                class="loading-maximum-weight"></span></span>[[taskWeightForm.calculatedAutomatically]]</p>
+
+        <div class="field">
+            <label for="">[[taskWeightForm.taskWeight]]</label>
+            <input class="task-weight" type="text" name="weight" placeholder="Auto"/>
+        </div>
+
+        <div class="submit-button">
+            <input value="[[form.submit]]" class="button medium blue" type="submit">
+        </div>
+    </form>
+</div>
+
+<div id="template-form-project-file">
+    <form method="post" data-model="file" novalidate action="#">
+
+        <div id="progress-wrapper"></div>
+
+        <!--<div id="select-files" class="field">-->
+        <!--<input id="fileupload" type="file" name="files[]" multiple>-->
+        <!--</div>-->
+
+        <a id="cancel-all" class="button red submit" href="#">[[projectFileForm.cancel]]</a>
+    </form>
+
+</div>
+
+<div id="template-file-progress">
+    <div class="progress-bar-wrapper" data-file="{{fileName}}" data-id="{{id}}">
+        <div class="clearfix">
+            <div class="filename">{{fileName}}</div>
+            <a href="#" class="cancel">[[fileProgress.cancel]]</a>
+
+            <div class="status">[[fileProgress.status]]</div>
+        </div>
+        <div class="progress"><span class="orange" style="width: 0%;"><span>0%</span></span></div>
+
+    </div>
+</div>
+
+<div id="template-add-project-list-item">
+    <div id="{{buttonId}}" class="button clear-button  add-list-item {{type}}"
+         title="[[addProjectListItem.title]] {{buttonText}}">
+        <div class="icon ti-plus add-item"></div>
+        {{buttonText}}
+    </div>
+</div>
+
+<div id="template-edit-notes-button">
+    <div id="{{buttonId}}" class="button clear-button edit-notes {{type}}" title="{{buttonText}}">
+        <div class="icon ti-pencil edit-notes"></div>
+        {{buttonText}}
+    </div>
+</div>
+
+
+<div id="template-add-file-button">
+    <div id="{{buttonId}}" class="button clear-button add-file-button {{type}}" title="Add New {{buttonText}}">
+        <div class="icon ti-plus add-item"></div>
+        {{buttonText}}
+        <input id="fileupload" type="file" name="files[]" multiple>
+    </div>
+</div>
+
+
+<div id="template-task-add-file-button">
+    <div id="{{buttonId}}" class="button small add-file-button {{type}}" title="[[addFileButton.title]] {{buttonText}}">
+        {{buttonText}}
+        <input id="fileupload" type="file" name="files[]" multiple>
+    </div>
+</div>
+
+
+<div id="template-calendar">
+    <div id="calendar-outer">
+        <div id="calendar"></div>
+    </div>
+</div>
+
+<div id="template-calendar-header">
+    <div id="calendar-header">
+
+        {{#userIsAdmin}}
+        <!--<div class="filter-dropdown">-->
+        <!--<div class="filter-button">[[calendarHeader.filter]]<span class="caret caret-down"></span></div>-->
+
+        <!--<ul class="dropdown-menu pull-right">-->
+        <!--<li id="filter-my-tasks"><span>[[calendarHeader.myTasks]]</span></li>-->
+        <!--<li id="filter-all-tasks" class="selected"><span>[[calendarHeader.allTasks]]</span></li>-->
+
+        <!--</ul>-->
+        <!--</div>-->
+        {{/userIsAdmin}}
+
+        <div id="calendar-menu">
+
+            <ul id="calendar-controls" class="beveled-button-set">
+                <li class="prev-date">&#9668;</li>
+                <li class="today-date">[[calendarHeader.today]]</li>
+                <li class="next-date">&#9658;</li>
+            </ul>
+            <select id="calendar-view-selector" class="beveled-dropdown">
+                <option value="month">[[calendarHeader.month]]</option>
+                <option value="basicWeek">[[calendarHeader.week]]</option>
+                <option value="basicDay">[[calendarHeader.day]]</option>
+            </select>
+
+            <div class="date-name">{{month}}</div>
+        </div>
+    </div>
+</div>
+
+<div id="template-calendar-event-item">
+    <div class="calendar-event-item {{statusClass}}">
+        <div class="task-status"></div>
+        <div class="task-name">{{title}}</div>
+    </div>
+</div>
+
+<div id="template-calendar-item-popup">
+    <div class="calendar-item-popup">
+        <h5 class="popup-title">{{title}}</h5>
+        <span class="close vector-icon clickable">x</span>
+
+        <p>{{description}}</p>
+        <a href="{{url}}">[[calendarItemPopup.goToTask]]</a>
+    </div>
+</div>
+
+<div id="template-confirm-box">
+    <div id="confirm-box">
+        <h3 class="message">{{message}}</h3>
+
+        <div class="confirmation-buttons">
+            <button class="button small red action">{{action}}</button>
+            <button class="button small secondary cancel">[[confirmBox.cancel]]</button>
+
+        </div>
+    </div>
+</div>
+
+<div id="template-alert">
+    <div class="modal-overlay">
+        <div class="modal alert">
+            <div class="alert">
+                <p class="message">
+                    {{#messages}}
+                    {{message}}<br/><br/>
+                    {{/messages}}
+                </p>
+                <button class="button small secondary cancel">[[alert.ok]]</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="template-project-progress-title-widget">
+    <div class="project-progress-title-widget {{status}}" title="[[projectProgressTitleWidget.title]]">
+        (<span>{{progress}}</span>%)
+    </div>
+</div>
+
+<div id="template-form-credit-card-payment">
+    <div>
+        <form action="#" method="post" id="credit-card-payment-form" class="" data-model="StripePayment">
+
+            <div class="form-fields">
+
+                <div class="form-header">
+                    <h4>[[creditCardPayment.billingInfo]]</h4>
+
+                    <p>[[creditCardPayment.pleaseEnterDetails]]</p>
+
+
+                    <div class="accepted-cards"></div>
+
+                </div>
+
+
+                <div class="first-name">
+                    <input id="first_name" name="first_name" type="text" placeholder="[[creditCardPayment.firstName]]">
+
+                </div>
+
+                <div class="last-name">
+                    <input id="last_name" name="last_name" type="text" placeholder="[[creditCardPayment.lastName]]">
+
+                </div>
+
+                <div id="payment-errors"></div>
+
+                <div class="card-number">
+                    <input type="text" name="card_number" class="card_number"
+                           placeholder="[[creditCardPayment.creditCardNumber]]">
+                </div>
+
+
+                <div>
+                    <div class="top-label">[[creditCardPayment.expirationDate]]</div>
+
+                    <div class="expiration-month">
+                        <select data-placeholder="[[creditCardPayment.month]]" class="card_expiry_month"
+                                name="card_expiry_month">
+
+                            <option></option>
+                            <option value="1">[[creditCardPayment.jan]]</option>
+                            <option value="2">[[creditCardPayment.feb]]</option>
+                            <option value="3">[[creditCardPayment.mar]]</option>
+                            <option value="4">[[creditCardPayment.apr]]</option>
+                            <option value="5">[[creditCardPayment.may]]</option>
+                            <option value="6">[[creditCardPayment.jun]]</option>
+                            <option value="7">[[creditCardPayment.jul]]</option>
+                            <option value="8">[[creditCardPayment.aug]]</option>
+                            <option value="9">[[creditCardPayment.sept]]</option>
+                            <option value="10">[[creditCardPayment.oct]]</option>
+                            <option value="11">[[creditCardPayment.nov]]</option>
+                            <option value="12">[[creditCardPayment.dec]]</option>
+                        </select>
+                    </div>
+                    <div class="expiration-year">
+                        <select data-placeholder="[[creditCardPayment.year]]" class="card_expiry_year"
+                                name="card_expiry_year">
+                            <option></option>
+                            <option value="2013">2013</option>
+                            <option value="2014">2014</option>
+                            <option value="2015">2015</option>
+                            <option value="2016">2016</option>
+                            <option value="2017">2017</option>
+                            <option value="2018">2018</option>
+                            <option value="2019">2019</option>
+                            <option value="2020">2020</option>
+                            <option value="2021">2021</option>
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                        </select>
+                    </div>
+                    <div class="cvc">
+                        <input type="text" class="card_cvc" name="card_cvc" placeholder="[[creditCardPayment.cvc]]">
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="invoice-summary">
+
+
+                <div class="invoice-meta-wrapper">
+                    <div class="invoice-number">[[creditCardPayment.invoice]] {{number}}</div>
+                    <div class="invoice-due-date"><span>[[creditCardPayment.dueDate]]:</span> {{dueDateText}}</div>
+                    <div class="invoice-status {{statusClass}}"><span>[[creditCardPayment.status]]:</span> <span
+                            class="status-text">{{statusText}}</span>
+                    </div>
+                    <div class="invoice-date-sent"><span>[[creditCardPayment.balance]]:</span> {{formattedBalance}}
+                    </div>
+                </div>
+
+
+            </div>
+
+            <input type="hidden" name="amount" value="{{total}}">
+            <input type="hidden" name="invoice_id" value="{{id}}">
+
+            <div class="submit-button">
+                <input value="[[creditCardPayment.payInvoice]]" class="button medium blue" type="submit">
+            </div>
+        </form>
+        <div id="payment-processing-overlay">
+            <div><span>[[creditCardPayment.pleaseWait]]</span><br/>[[creditCardPayment.paymentProcessing]]</div>
+        </div>
+    </div>
+</div>
+
+<div id="template-form-paypal-payment">
+    <form id="paypal-payment-form" method="post" action="#" data-model="PaypalPayment">
+        <div class="paypal-instructions">
+            <p>[[paypalForm.instructions]]</p>
+            <img src="client/images/paypal.jpg"/>
+        </div>
+        <div class="invoice-summary">
+            <div class="invoice-meta-wrapper">
+                <div class="invoice-number">[[paypalForm.invoice]] {{number}}</div>
+                <div class="invoice-due-date"><span>[[paypalForm.dueDate]]:</span> {{dueDateText}}</div>
+                <div class="invoice-status {{statusClass}}"><span>[[paypalForm.status]]:</span> <span
+                        class="status-text">{{statusText}}</span>
+                </div>
+                <div class="invoice-date-sent"><span>[[paypalForm.balance]]:</span> {{formattedBalance}}</div>
+            </div>
+        </div>
+
+        <input type="hidden" name="amount" value="{{total}}">
+        <input type="hidden" name="invoice_id" value="{{id}}">
+
+        <div class="submit-button">
+            <input value="[[paypalForm.payWithPaypal]]" class="button medium blue" type="submit">
+        </div>
+    </form>
+</div>
+
+<div id="template-form-manual-payment">
+    <form id="manual-payment-form" method="post" action="#" data-model="ManualPayment">
+        <div class="form-fields">
+
+            <div class="form-header">
+                <p>[[manualPayment.instructions]]</p>
+            </div>
+
+
+            <div class="amount field">
+                <h4>[[manualPayment.paymentAmount]]: {{formattedBalance}}</h4></br>
+            </div>
+
+            <div class="payment-date">
+                <input name="payment_date_selection" type="date" placeholder="[[manualPayment.date]]">
+                <input name="payment_date" type="hidden">
+            </div>
+
+            <div class="payment-method">
+                <input name="payment_method" type="text" placeholder="[[manualPayment.method]]">
+            </div>
+
+            <div class="description">
+                <textarea rows="4" cols="20" name="description" placeholder="[[manualPayment.notes]]"></textarea>
+            </div>
+
+        </div>
+
+        <div class="invoice-summary">
+            <div class="invoice-meta-wrapper">
+                <div class="invoice-number">[[manualPayment.invoice]] {{number}}</div>
+                <div class="invoice-due-date"><span>[[manualPayment.dueDate]]:</span> {{dueDateText}}</div>
+                <div class="invoice-status {{statusClass}}"><span>[[manualPayment.status]]:</span> <span
+                        class="status-text">{{statusText}}</span>
+                </div>
+                <div class="invoice-date-sent"><span>[[manualPayment.balance]]:</span> {{formattedBalance}}</div>
+            </div>
+        </div>
+
+
+        <input type="hidden" name="amount" value="{{balance}}">
+        <input type="hidden" name="invoice_id" value="{{id}}">
+
+        <div class="submit-button">
+            <input value="[[manualPayment.enterPayment]]" class="button medium blue" type="submit">
+        </div>
+    </form>
+</div>
+
+<div id="template-no-payment-method">
+    <div>
+        <p>{{paymentInstructions}}<br></p>
+
+        <div class="ok button blue right">[[noPaymentMethod.ok]]</div>
+    </div>
+</div>
+
+<div id="template-error">
+    <div class="notification error closeable">
+        {{message}}
+        <a href="#" class="close"></a>
+    </div>
+</div>
+
+<div id="template-notice">
+    <div class="notification notice closeable">
+        {{message}}
+        <a href="#" class="close"></a>
+    </div>
+</div>
+
+<div id="template-notification">
+    <div class="notification notice closeable">
+        <div class="notification-inner">{{message}}</div>
+        <span class="close" title="close"></span>
+    </div>
+</div>
+
+
+<div id="template-project-details">
+    <div id="project-details" class="{{project.status_text}}">
+
+        <div id="top-details">
+
+            {{#hasDueDate}}
+            <div>
+                <h3>{{formattedDueDate}}</h3>
+                <h5>[[projectDetails.dueDate]]</h5>
+            </div>
+            {{/hasDueDate}}
+
+
+            <div>
+                <h3>{{formattedStatusText}}<span class="{{project.status_text}}"> ({{projectProgress}})</span></h3>
+                <h5>[[projectDetails.status]] <span class="status-indicator {{project.status_text}}"></span></h5>
+            </div>
+
+
+            <div>
+                <h3>{{formattedTotalTime}}</h3>
+                <h5>[[projectDetails.totalTime]]</h5>
+            </div>
+
+            <div>
+                <h3>{{formattedTotalBilled}}</h3>
+                <h5>[[projectDetails.invoiceStatsBilled]]</h5>
+            </div>
+
+            <div>
+                <h3>{{formattedTotalOutstanding}}</h3>
+                <h5>[[projectDetails.invoiceStatsOutstanding]]</h5>
+            </div>
+
+            <div>
+                <h3>{{taskCounts.incomplete}}</h3>
+                <h5>[[projectDetails.openTasks]]</h5>
+            </div>
+        </div>
+
+
+        <div id="main-dashboard">
+            <div id="activity-stream-space" class="unfloat-on-mobile">
+                <h5 class="section-title">[[projectDetails.projectActivity]]</h5>
+
+                <div class="activity-stream">
+
+                </div>
+            </div>
+
+            {{#isRegularProject}}
+            <div class="project-stats unfloat-on-mobile">
+
+                {{#userIsAdmin}}
+
+                <h5 class="section-title">[[projectDetails.client]]</h5>
+
+                <p><span class="icon ti-user"></span><a
+                        href="#clients/{{project.client_id}}">{{project.client_name}}</a></p>
+                {{/userIsAdmin}}
+
+
+                <h5 class="section-title">[[projectDetails.projectActions]]</h5>
+
+                <p class="project-action"><span class="icon ti-comments"></span><a
+                        href="#projects/{{project.id}}/discussion">[[projectDetails.discuss]]</a></p>
+
+                {{#userIsAdmin}}
+                <p class="project-action"><span class="icon ti-plus"></span><a href="#projects/{{project.id}}/people">[[projectDetails.addPerson]]</a>
+                </p>
+
+                <p id="edit-project" class="project-action"><span class="icon ti-pencil"></span><span>[[projectDetails.editProject]]</span>
+                </p>
+
+                {{#if project.is_archived}}
+                <p id="unarchive-project" class="project-action"><span class="icon ti-shift-left"></span><span>[[projectDetails.unarchiveProject]]</span>
+                </p>
+                {{else}}
+                <p id="archive-project" class="project-action"><span class="icon ti-archive"></span><span>[[projectDetails.archiveProject]]</span>
+                </p>
+                {{/if}}
+
+                <p id="delete-project" class="project-action"><span class="icon ti-na"></span><span>[[projectDetails.deleteProject]]</span>
+                </p>
+
+
+                {{/userIsAdmin}}
+
+
+                <div class="">
+                    <h5 class="section-title">[[projectDetails.people]]</h5>
+
+                    <div class="people-list">
+                        <ul class="">
+                            {{#people.agents}}
+                            <li class="person-info" data-id={{id}}>
+                                <a href="#users/{{id}}">
+                                    <span class="person-image user-image"></span>
+                                <span class="person-meta">
+                                    <span class="person-name">{{first_name}} {{last_name}}</span>
+                                    <span class="person-role">{{role}}</span>
+                                </span>
+                                </a>
+                            </li>
+                            {{/people.agents}}
+
+                            {{#people.clients}}
+                            <li class="person-info" data-id={{id}}>
+                                <a href="#users/{{id}}">
+                                    <span class="person-image user-image"></span>
+                                <span class="person-meta">
+                                    <span class="person-name">{{first_name}} {{last_name}}</span>
+                                    <span class="person-role">{{role}}</span>
+                                </span>
+                                </a>
+                            </li>
+                            {{/people.clients}}
+
+
+                            {{#people.admins}}
+                            <li class="person-info" data-id={{id}}>
+                                <a href="#users/{{id}}">
+                                    <span class="person-image user-image"></span>
+                                <span class="person-meta">
+                                    <span class="person-name">{{first_name}} {{last_name}}</span>
+                                    <span class="person-role">{{role}}</span>
+                                </span>
+                                </a>
+                            </li>
+                            {{/people.admins}}
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+            {{/isRegularProject}}
+
+            {{#isTemplate}}
+            <div class="project-stats unfloat-on-mobile">
+                <h5 class="section-title">[[projectDetails.templateActions]]</h5>
+
+                <p id="edit-template" class="project-action"><span class="icon ti-pencil"></span><span>[[projectDetails.editTemplate]]</span>
+                </p>
+
+
+                <p id="new-project-from-template" class="project-action"><span class="icon ti-shift-left"></span><span>[[projectDetails.newProjectFromTemplate]]</span>
+                </p>
+
+                <p id="delete-template" class="project-action"><span class="icon ti-na"></span><span>[[projectDetails.deleteTemplate]]</span>
+                </p>
+            </div>
+
+            {{/isTemplate}}
+        </div>
+
+    </div>
+
+</div>
+
+
+<div id="template-activity-list">
+    <div class="activity-stream-wrapper">
+        <ul class="activity-stream-list">
+            {{#activityItems}}
+            <li class="activity-{{objectType}} activity-{{actionTaken}} hidden" data-id="{{id}}">
+                <a href="#{{#isUserGenerated}}users/{{userId}}{{/isUserGenerated}}" class="user-image"></a>
+
+                <div class="activity-content">
+
+                    {{#isUserGenerated}}<a href="#users/{{userId}}" class="activity-user">{{userName}}</a>
+                    {{/isUserGenerated}}{{actionTaken}} {{article}}
+                    {{objectTypeText}}
+
+
+                    {{#hasLinkedObject}}
+                    [[activity.on]] {{linkedArticle}} {{linkedObjectTypeText}}
+                    (<span class="linked-activity-title"><a href="{{linkedObjectLink}}"
+                                                            class="linked-object-link">{{linkedObjectTitle}}</a></span>)
+                    {{/hasLinkedObject}}
+
+                    <span class="activity-timestamp" title="{{dateText}}">{{formattedDate}}</span>
+
+                    <div class="activity-title">
+                        {{! We're using triple brackets for the object title because it may contain html and since
+                        it's generated by the server, we can trust it}}
+                        <a href="{{objectLink}}" class="object-link">{{{objectTitle}}}</a>
+                        <span class="object-link deleted-object">{{objectTitle}}</span>
+                    </div>
+                </div>
+            </li>
+            {{/activityItems}}
+        </ul>
+
+        <div class="activity-show-all">[[activityList.showAll]]</div>
+    </div>
+
+</div>
+
+
+<div id="template-task-filter">
+
+    <div class="task-filter filter-dropdown">
+        <div class="filter-button"><span class="ti-angle-down"></span>[[taskFilter.filter]]</div>
+
+        <ul class="dropdown-menu pull-right">
+            <li data-filter-type="complete" data-filter-value="incomplete"><span>[[taskFilter.incomplete]]</span></li>
+            <li data-filter-type="complete" data-filter-value="complete"><span>[[taskFilter.complete]]</span></li>
+            <li data-filter-type="complete" data-filter-value="all"><span>[[taskFilter.all]]</span></li>
+
+
+            <li class="divider"></li>
+            <li data-filter-type="assigned" data-filter-value="mine"><span>[[taskFilter.myTasks]]</span></li>
+            <li data-filter-type="assigned" data-filter-value="all"><span>[[taskFilter.allTasks]]</span></li>
+
+
+            <li class="divider"></li>
+            <li class="search-filter" data-filter-type="search">
+                <input type="text" placeholder="[[taskFilter.search]]"/>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+
+<div id="template-dashboard">
+
+    <div id="dashboard">
+        <div id="dashboard-project-list" class="unfloat-on-mobile">
+            <div class="dashboard-invoices">
+
+
+            </div>
+            <div class="dashboard-projects">
+                <h3 class="dashboard-section-title">[[dashboard.projects]]</h3>
+
+                <div id="dashboard-sort-wrapper"></div>
+                <div id="dashboard-filter-wrapper"></div>
+
+
+                <div id="dashboard-project-menu">
+                    <div class="dark button add-list-item new-entity">
+                        <div class="icon ti-plus add-item"></div>
+                        [[dashboard.addProject]]
+                    </div>
+
+                    <ul id="dashboard-project-view-type" class="button-set">
+                        <li id="line-items-view"><span class="ti-view-list"></span></li>
+                        <li id="tiles-view"><span class=" ti-view-grid"></span></li>
+                    </ul>
+
+                </div>
+
+                <div class="project-list"></div>
+            </div>
+
+
+        </div>
+        <div id="dashboard-activity-list" class="unfloat-on-mobile">
+            <h3>[[dashboard.activity]]</h3>
+
+            <div class="activity-stream"></div>
+        </div>
+    </div>
+</div>
+
+<div id="template-dashboard-invoices-summary">
+    <div id="dashboard-invoices-summary">
+        <div class="invoices-tabs">
+            <div class="invoices-tab" data-type="outstanding">
+                <div class="invoices-tab-inner">
+                    <h2><span class="currency-symbol">{{currencySymbol}}</span>{{formattedTotalOutstanding}}</h2>
+                    <h5>Total Outstanding Invoices</h5>
+                </div>
+            </div>
+
+            <div class="invoices-tab" data-type="overdue">
+                <div class="invoices-tab-inner">
+                    <h2><span class="currency-symbol">{{currencySymbol}}</span>{{formattedTotalOverdue}}</h2>
+                    <h5>Overdue Invoices</h5>
+                </div>
+            </div>
+        </div>
+        <div class="invoices-list nano top">
+            <div class="invoices-list-inner content">
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div id="template-dashboard-projects-tile-list">
+    <ul class="project-tile-list">
+        {{#projects}}
+        <li class="project-widget {{statusText}}" data-id="{{id}}">
+            <div class="project-title">
+                <h3>{{name}}</h3>
+
+                <h6>{{clientName}}</h6>
+            </div>
+
+            <div class="project-meta">
+                <p>[[dashboardProjectTiles.progress]]: <span>{{progress}}%</span></p>
+
+                <p>[[dashboardProjectTiles.expectedProgress]]: <span>{{expectedProgress}}%</span></p>
+
+                <p>[[dashboardProjectTiles.dueDate]]: <span>{{formattedDueDate}}</span></p>
+            </div>
+
+            <div class="bottom {{statusText}}">
+                <span class="status">&nbsp;</span>{{formattedStatusText}}
+
+                <span class="progress-difference">{{progressDifference}}</span>
+            </div>
+        </li>
+        {{/projects}}
+    </ul>
+</div>
+
+<div id="template-dashboard-projects-list">
+    <ul class="project-line-item-list">
+        {{#projects}}
+        <li class="project-widget {{statusText}}" data-id="{{id}}">
+            <div class="project-title">
+                <h4>{{name}}</h4>
+
+                <h4 class="client-name">{{clientName}}</h4>
+            </div>
+
+
+            <div class="bottom {{statusText}}">
+                <div class="progress-status">
+                    <span class="status">&nbsp;</span>{{formattedStatusText}}
+
+                    <span class="progress-difference">{{progressDifference}}</span>
+                </div>
+
+                <div class="due-date">[[dashboardProjectList.dueDate]]: <span>{{formattedDueDate}}</span></div>
+            </div>
+        </li>
+        {{/projects}}
+    </ul>
+</div>
+
+<div id="template-project-notes">
+    <div id="project-notes" class="project-notes">
+        <div id="notes-content"></div>
+        <div id="no-notes" class="no-activity">[[projectNotes.noNotes]]</div>
+    </div>
+</div>
+
+
+<div id="template-global-search">
+    <div id="global-search-results">
+        <div id="search-filters">
+            <div class="search-filter filter-dropdown">
+                <div class="filter-button">[[globalSearch.filter]] <span class="caret caret-down"></span></div>
+
+                <ul class="dropdown-menu pull-right">
+                    <li data-filter-value="all"><span>[[globalSearch.all]]</span></li>
+                    <li data-filter-value="project"><span>[[globalSearch.projects]]</span></li>
+                    <li data-filter-value="task"><span>[[globalSearch.tasks]]</span></li>
+                    <li data-filter-value="invoice"><span>[[globalSearch.invoices]]</span></li>
+                    <li data-filter-value="file"><span>[[globalSearch.files]]</span></li>
+                    <li data-filter-value="message"><span>[[globalSearch.messages]]</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="search-entities">
+            {{#hasProjects}}
+            <div id="search-project-results" class="search-entity">
+                <h6>[[globalSearch.projectsTitle]]</h6>
+
+                <div class="list condensed project-list">
+                    <div class="list-main-header">
+                        <div class="project-name">[[globalSearch.projectName]]</div>
+                        <div class="project-due-date">[[globalSearch.projectDueDate]]</div>
+                        <div class="project-status">[[globalSearch.projectStatus]]</div>
+                    </div>
+                    <ul class="list condensed">
+                        {{#projects}}
+                        <li class="{{statusText}}" data-type="{{type}}" data-id={{id}}>
+                            <div class="project-name">{{name}}</div>
+                            <div class="project-due-date">{{formattedDueDate}}</div>
+                            <div class="project-status">{{formattedStatusText}}</div>
+                        </li>
+                        {{/projects}}
+                    </ul>
+
+                </div>
+            </div>
+            {{/hasProjects}}
+
+            {{#hasTasks}}
+            <div id="search-task-results" class="search-entity">
+                <h6>[[globalSearch.tasksTitle]]</h6>
+
+                <div class="list condensed search-task-list">
+                    <div class="list-main-header">
+                        <div class="task-name">[[globalSearch.taskName]]</div>
+                        <div class="task-project-name">[[globalSearch.taskProject]]</div>
+                        <div class="task-due-date">[[globalSearch.taskDueDate]]</div>
+                        <div class="task-status">[[globalSearch.taskStatus]]</div>
+                    </div>
+                    <ul class="list condensed">
+                        {{#tasks}}
+                        <li class="{{statusText}}" data-type="{{type}}" data-id={{id}}>
+
+                            <div class="task-name">{{task}}</div>
+                            <div class="task-project-name">{{projectName}}</div>
+                            <div class="task-due-date">{{dueDateHumanized}}</div>
+                            <div class="task-status">{{formattedStatusText}}</div>
+
+                        </li>
+                        {{/tasks}}
+                    </ul>
+
+                </div>
+            </div>
+            {{/hasTasks}}
+
+            {{#hasInvoices}}
+            <div id="search-invoice-results" class="search-entity">
+                <h6>[[globalSearch.invoicesTitle]]</h6>
+
+                <div class="list condensed invoice-list">
+                    <div class="list-main-header">
+                        <div class="invoice-number">[[globalSearch.invoiceNumber]]</div>
+                        <div class="invoice-total">[[globalSearch.invoiceTotal]]</div>
+                        <div class="invoice-balance">[[globalSearch.invoiceBalance]]</div>
+                        <div class="invoice-status">[[globalSearch.invoiceStatus]]</div>
+                        <div class="invoice-due-date">[[globalSearch.invoiceDueDate]]</div>
+                    </div>
+
+                    <ul class="">
+                        {{#invoices}}
+                        <li class="{{statusClass}}" data-type="{{type}}" data-id={{id}}>
+                            <div class="invoice-number">{{number}}</div>
+                            <div class="invoice-total">{{formattedTotal}}</div>
+                            <div class="invoice-balance">{{formattedBalance}}</div>
+                            <div class="invoice-status {{statusClass}}"><span
+                                    class="status-text">{{statusText}}</span>
+                            </div>
+                            <div class="invoice-due-date">{{dueDateHumanized}}</div>
+                        </li>
+                        {{/invoices}}
+                    </ul>
+                </div>
+            </div>
+            {{/hasInvoices}}
+
+            {{#hasClients}}
+            <div id="search-clients-results" class="search-entity">
+                <h6>[[globalSearch.clientsTitle]]</h6>
+
+                <div class="list condensed client-list">
+                    <div class="list-main-header">
+                        <div class="project-name">[[globalSearch.clientName]]</div>
+
+                    </div>
+                    <ul class="list condensed">
+                        {{#clients}}
+                        <li class="{{statusText}}" data-type="{{type}}" data-id={{id}}>
+                            <div class="client-name">{{name}}</div>
+                        </li>
+                        {{/clients}}
+                    </ul>
+
+                </div>
+            </div>
+            {{/hasClients}}
+
+            {{#hasFiles}}
+            <div id="search-files-results" class="search-entity">
+                <h6>[[globalSearch.filesTitle]]</h6>
+
+                <div class="list condensed file-list">
+                    <div class="list-main-header">
+                        <div class="file-name">[[globalSearch.fileName]]</div>
+                        <div class="file-type">[[globalSearch.fileType]]</div>
+                        <div class="file-project-name">[[globalSearch.fileProject]]</div>
+                    </div>
+                    <ul class="list condensed">
+                        {{#files}}
+                        <li class="{{statusText}}" data-type="{{type}}" data-id={{id}}>
+                            <div class="file-name">{{name}}</div>
+                            <div class="file-type">{{fileType}}</div>
+                            <div class="file-project-name">{{projectName}}</div>
+                        </li>
+                        {{/files}}
+                    </ul>
+                </div>
+            </div>
+            {{/hasFiles}}
+
+            {{#hasUsers}}
+            <div id="search-users-results" class="search-entity">
+                <h6>[[globalSearch.usersTitle]]</h6>
+
+                <div class="list condensed user-list">
+                    <div class="list-main-header">
+                        <div class="user-name">[[globalSearch.userName]]</div>
+                        <div class="user-email">[[globalSearch.userEmail]]</div>
+                    </div>
+                    <ul class="list condensed">
+                        {{#users}}
+                        <li class="{{statusClass}}" data-type="{{type}}" data-id={{id}}>
+                            <div class="user-name">{{name}}</div>
+                            <div class="user-email">{{email}}</div>
+                        </li>
+                        {{/users}}
+                    </ul>
+                </div>
+            </div>
+            {{/hasUsers}}
+
+            {{#hasMessages}}
+            <div id="search-message-results" class="search-entity">
+                <h6>[[globalSearch.messagesTitle]]</h6>
+
+                <div class="list condensed message-list">
+
+                    <ul class="list condensed">
+                        {{#messages}}
+                        <li class="{{statusText}}" data-type="{{type}}" data-id={{id}}>
+                            {{!triple brackets because messages are sanitized on the server side}}
+                            <div class="message">{{{message}}}</div>
+                        </li>
+                        {{/messages}}
+                    </ul>
+                </div>
+            </div>
+            {{/hasMessages}}
+
+            <div id="no-results-wrapper"></div>
+        </div>
+
+
+    </div>
+</div>
+
+<div id="template-no-search-results">
+    <p class="no-search-results">[[globalSearchNoResults.noMatching]]
+        {{type}}[[globalSearchNoResults.pluralizeType]]</p>
+</div>
+
+<div id="template-form-forgot-password">
+    <div id="forgot-password">
+        <form action="#" method="post" data-model="forgotPassword">
+            <h4>[[forgotPassword.forgotPassword]]</h4>
+
+            <p>[[forgotPassword.instructions]]</p>
+
+            <div class="field">
+                <input name="email" type="text" required="required"/>
+            </div>
+
+            <input type="submit" class="blue" value="[[form.submit]]">
+        </form>
+        <div id="temp-password-message">
+            [[forgotPassword.checkEmail]]
+        </div>
+
+    </div>
+</div>
+
+<div id="template-form-change-password">
+    <form id="change-password" action="#" method="post" data-model="changePassword">
+        <div class="field">
+            <label for="">[[changePassword.currentPassword]]</label>
+            <input type="password" name="current_password" required="required">
+        </div>
+        <div class="field">
+            <label for="">[[changePassword.newPassword]]</label>
+            <input type="password" name="new_password" required="required">
+        </div>
+        <div class="field">
+            <label for="">[[changePassword.confirmNewPassword]]</label>
+            <input type="password" name="new_password_confirm" required="required">
+        </div>
+
+        <input type="submit" value="[[form.submit]]">
+
+    </form>
+</div>
+
+<div id="template-form-send-password">
+    <form id="sedn-password" action="#" method="post" data-model="sendPassword">
+
+        <p>[[sendPassword.instructions]]</p>
+
+        <input type="hidden" name="id" value="{{userId}}">
+
+        <input type="submit" class="small" value="[[sendPassword.submit]]">
+
+        <div class="button large">[[sendPassword.cancel]]</div>
+
+    </form>
+</div>
+
+<div id="template-admin-settings">
+    <div id="admin-settings">
+
+        <p class="software-version">[[adminSettings.softwareVersion]]: {{version}} <br>
+
+            <span id="check-for-update" class="button tiny flat">Check for update</span>
+        </p>
+        <br>
+        <br>
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#admin-general">General</a></li>
+            <li><a href="#admin-settings-overview">Settings Overview</a></li>
+            <li><a href="#admin-feedback">Feedback & Referrals</a></li>
+        </ul>
+
+        <div id="admin-general" class="admin-section active">
+
+
+            <h4>[[adminSettings.templatesSection]]</h4>
+
+            <p>[[adminSettings.templatesSectionInstructions]]</p>
+
+            <div id="build-language-button" class="button">[[adminSettings.buildLanguageFile]]</div>
+
+            <hr>
+            <h4>[[adminSettings.deletePaidInvoiceSection]]</h4>
+
+            <p>[[adminSettings.deletePaidInvoiceInstructions]]</p>
+
+            <div id="delete-invoice" class="button">[[adminSettings.deletePaidInvoice]]</div>
+
+        </div>
+
+        <div id="admin-settings-overview" class="admin-section">
+
+            <h4>[[adminSettings.settingsOverview]]</h4>
+
+            <p>[[adminSettings.settingsOverviewInstructions]]</p>
+
+            <div id="settings-overview">
+                {{#settings}}
+                <h4 class="setting-section-header">{{section_name}}</h4>
+                <ul class="setting-section-values">
+                    {{#values}}
+                    <li><span><strong>{{description}}: </strong></span>{{value}}</li>
+                    {{/values}}
+                </ul>
+                {{/settings}}
+            </div>
+
+        </div>
+        <div id="admin-feedback" class="admin-section">
+            <div>
+                <h4>Referrals</h4>
+
+                <p> Do you know one or two small business owners that would benefit from affordable project management
+                    software? If so, send them a quick referral!
+
+                <form action="#" id="referral-form" method="post">
+                    <div class="field">
+                        <label>Email</label>
+                        <input class="form-control" type="email" name="email" required="required"/>
+                    </div>
+
+                    <div class="field">
+                        <label>Subject</label>
+                        <input class="form-control" type="text" name="subject"
+                               value="Check out this great project management app" required="required"/>
+                    </div>
+
+                    <div class="field">
+                        <label>Message</label>
+                        <textarea class="form-control" name="message" id="" cols="30" rows="10" required="required">
+
+                        </textarea>
+
+                        <div id="referral-disclaimer">A copy of each referral will be sent through duetapp.com's servers
+                            for analytics purposes.
+                        </div>
+                    </div>
+                    <input value="Send" type="submit">
+                </form>
+
+
+                <div id="social-shares">
+                    <p>Share on social media</p>
+
+                    <div class="share-option">
+                        <a id="twitter-button" target="_blank"
+                           href="https://twitter.com/intent/tweet?text=Duet+-+A+great+project+management+app+for+small+businesses+http%3a%2f%2fduetapp.com&via=23andwalnut"><span
+                                class="share-icon ti-twitter"></span>Tweet</a>
+                    </div>
+
+                    <div class="share-option">
+                        <a id="facebook-button" target="_blank"
+                           href="http://www.facebook.com/share.php?u=https://duetapp.com&t=Duet+-+A+great+project+management+app+for+small+businesses+http%3a%2f%2fduetapp.com%20@23andWalnut&v=4"><span
+                                class="share-icon ti-facebook"></span>Share on Facebook</a>
+                    </div>
+
+                    <div class="share-option">
+                        <a id="linkedin-button" target="_blank"
+                           href="http://www.linkedin.com/shareArticle?mini=true&url=https://duetapp.com&title=Duet+-+A+great+project+management+app+for+small+businesses+http%3a%2f%2fduetapp.com&summary=A+beautiful+self+hosted+project+management+app+with+a+low+one+time+fee&source=https://duetapp.com"><span
+                                class="share-icon ti-linkedin"></span>Share on LinkedIn</a>
+                    </div>
+
+
+                    <div class="share-option">
+                        <a id="google-button" target="_blank"
+                           href="https://plus.google.com/share?url=http%3a%2f%2fduetapp.com"><span
+                                class="share-icon ti-google"></span>Share on Google+</a>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <hr>
+
+
+            <div>
+                <h4>Feedback</h4>
+
+                <p>Do you have suggestions on how to improve Duet? I would love to hear from you.</p>
+
+                <form id="feedback-form" action="#">
+                    <div class="field"><textarea class="form-control" name="message" required="required" id="" cols="30"
+                                                 rows="10"></textarea></div>
+                    <input value="Send" type="submit">
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+
+<span id="template-referral-text"><span>Hey,
+
+I've been using Duet Project Management and loving it. It's an awesome project management
+app for small businesses and it is very affordable.
+
+I thought you might like their service too so I'm sending you this link. http://duetapp.com
+
+Check it out!
+</span></span>
+
+<div id="template-delete-invoice">
+    <div id="delete-invoice-form" class="form">
+        <p>[[deleteInvoice.instructions]]</p>
+
+        <div class="field">
+            <label>[[deleteInvoice.fieldLabel]]</label>
+            <input name="invoice_number" type="text">
+        </div>
+        <div class="button submit red">[[deleteInvoice.button]]</div>
+    </div>
+</div>
+
+<div id="template-panel-loading">
+    <div class="panel-loading">
+        <h4 class="loading-texts">[[panelLoading.loading]]</h4>
+    </div>
+</div>
+
+<div id="template-panel-no-selection">
+    <div class="panel-no-selection">
+        <p class="loading-texts">[[panelNoSelection.makeSelection]]</p>
+    </div>
+</div>
+
+<div id="template-reporting">
+    <div id="reporting">
+        <div id="reporting-text-widgets">
+            <div id="reporting-this-month" class="reporting-widget">
+                <div class="reporting-widget-inner">
+                    <h6>[[reporting.revenueThisMonth]]</h6>
+
+                    <div class="reporting-total">
+                        <h1>{{paymentsThisMonthDollars}}<span>.{{paymentsThisMonthCents}}</span></h1>
+                    </div>
+                </div>
+                <div class="reporting-change">
+                    {{#changeDirection}}
+                    {{changeDirection}} {{paymentsThisMonthChangePercentage}}%
+                    {{/changeDirection}}
+                </div>
+            </div>
+
+
+            <div id="reporting-outstanding-invoices" class="reporting-widget">
+                <div class="reporting-widget-inner">
+                    <h6>[[reporting.outstandingInvoices]]</h6>
+
+                    <div class="reporting-total">
+                        <h1>{{outstandingInvoicesTotalDollars}}<span>.{{outstandingInvoicesTotalCents}}</span></h1>
+                    </div>
+                </div>
+                <div class="reporting-change"></div>
+            </div>
+        </div>
+
+        <div id="reporting-client-revenue">
+            <h6>[[reporting.revenuePerClient]]</h6>
+
+            <div id="client-revenue-chart"></div>
+        </div>
+
+        <div id="reporting-payments-list">
+            <h6>[[reporting.payments]]</h6>
+
+            <div class="nano">
+                <div class="list condensed project-list content">
+                    <div class="list-main-header">
+                        <div class="payment-date">[[reporting.paymentDate]]</div>
+                        <div class="payment-amount">[[reporting.paymentAmount]]</div>
+                        <div class="payment-client">[[reporting.paymentClient]]</div>
+                        <div class="payment-invoice">[[reporting.paymentInvoiceNumber]]</div>
+                    </div>
+
+                    <ul class="list condensed ">
+                        {{#payments}}
+                        <li>
+                            <div class="payment-date">{{payment_date}}</div>
+                            <div class="payment-amount">{{amount}}</div>
+                            <div class="payment-client">{{client_name}}</div>
+                            <div class="payment-invoice">{{invoice_number}}</div>
+
+                        </li>
+                        {{/payments}}
+                        <li class="end">
+                            [[reporting.paymentEndOfList]]
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div id="reporting-this-year">
+            <h6>[[reporting.revenueThisYear]]</h6>
+
+            <div id="revenue-chart"></div>
+        </div>
+
+    </div>
+</div>
+
+<div id="template-running-timer">
+    <div class="running-timer">
+        <div class="running-timer-inner">
+            <div class="timer-task">{{task}}</div>
+            <div class="timer-elapsed"></div>
+            <div class="timer-stop"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="template-form-new-project-from-template">
+    <div id="new-project-from-template">
+        <p class="notification">[[newProjectFromTemplateForm.instructions]]</p>
+
+        <div id="template-project-form">
+
+        </div>
+    </div>
+</div>
+
+
+<div id="template-people-list">
+    <div class="people-list">
+        <ul>
+            {{#admins}}
+            <li class="person-info" data-id={{id}}>
+                <a href="#users/{{id}}">
+                    <span class="person-image user-image"></span>
+                    <span class="person-name">{{first_name}} {{last_name}}</span>
+                    <span class="person-role">{{role}}</span>
+                </a>
+            </li>
+            {{/admins}}
+
+            {{#if userIsAdmin}}
+
+            {{#agents}}
+            <li class="person-info" data-id={{id}}>
+                <a href="#users/{{id}}">
+                    <span class="person-image user-image"></span>
+                    <span class="person-name">{{first_name}} {{last_name}}</span>
+                    <span class="person-role">{{role}}</span>
+                    <span class="remove-user">[[peopleView.remove]]</span>
+                </a>
+            </li>
+            {{/agents}}
+
+            {{else}}
+
+            {{#agents}}
+            <li class="person-info" data-id={{id}}>
+                <a href="#users/{{id}}">
+                    <span class="person-image user-image"></span>
+                    <span class="person-name">{{first_name}} {{last_name}}</span>
+                    <span class="person-role">{{role}}</span>
+
+                </a>
+            </li>
+            {{/agents}}
+
+            {{/if}}
+
+            {{#clients}}
+            <li class="person-info" data-id={{id}}>
+                <a href="#users/{{id}}">
+                    <span class="person-image user-image"></span>
+                    <span class="person-name">{{first_name}} {{last_name}}</span>
+                    <span class="person-role">{{role}}</span>
+                </a>
+            </li>
+            {{/clients}}
+        </ul>
+    </div>
+</div>
+
+<div id="template-form-add-person-to-project">
+    <form id="add-person-to-project" action="#" method="post">
+
+        <div class="field">
+            <label>[[addPersonToProjectView.existingUsers]]</label>
+            <select name="user_id" id="">
+                <option></option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label>[[addPersonToProjectView.createNewUser]]</label>
+            <span class="button create-new-user">[[addPersonToProjectView.createNewUserButton]]</span>
+        </div>
+
+    </form>
+</div>
+
+
+<div id="template-form-new-user-type">
+    <div id="choose-new-user-type">
+        <div class="new-user-type" data-type="admin">
+            <div class="icon ti-plus"></div>
+            <div class="user-type-description">
+                <h5>Admin</h5>
+
+                <p>An admin has access to everything in the application.</p>
+            </div>
+        </div>
+        <div class="new-user-type" data-type="agent">
+            <div class="icon ti-plus"></div>
+            <div class="user-type-description">
+                <h5>Agent</h5>
+
+                <p>An agent only hass access to the projects that they are assigned to. You can limit which project
+                    modules an agent has access to.</p>
+            </div>
+        </div>
+        <div class="new-user-type" data-type="client">
+            <div class="icon ti-plus"></div>
+            <div class="user-type-description">
+                <h5>Client User</h5>
+
+                <p>A client user only has access to projects that are associated with their client account.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="template-form-add-user-to-project-step-one">
+    <div id="add-user-to-project-step-one">
+
+        <div id="option-existing" class="new-user-type" data-type="existing">
+            <div class="icon ti-plus"></div>
+            <div class="user-type-description">
+                <h5>Existing User</h5>
+
+                <p>Add an agent that already exists in the system</p>
+            </div>
+        </div>
+
+        <div id="option-new" class="new-user-type" data-type="new">
+            <div class="icon ti-plus"></div>
+            <div class="user-type-description">
+                <h5>New User</h5>
+
+                <p>Create a new admin, agent, or client</p>
+            </div>
+        </div>
+
+
+        <p class="small">*[[addPersonToProjectView.instructions]] <a href="#">[[addPersonToProjectView.roleInstructions]]</a>
+        </p>
+    </div>
+</div>
+
+<div id="template-form-add-existing-user-to-project">
+    <form action="">
+        <div class="field">
+            <label>[[addPersonToProjectView.existingUsers]]</label>
+            <select name="user_id" id="">
+                <option></option>
+            </select>
+        </div>
+
+        <input type="submit" value="[[addExistingPersonToProjectView.addButton]]">
+    </form>
+</div>
+
+
+<div id="template-discussion">
+    <div id="discussion-panel">
+        <div id="discussion-header-wrapper">
+
+        </div>
+        <div id="messages-list-wrapper" class="nano top">
+            <ul id="messages-list" class="content">
+
+            </ul>
+        </div>
+        <div id="new-message">
+            <div id="message-area-wrapper">
+                <textarea rows="3" cols="20"></textarea>
+
+
+            </div>
+            <div id="message-file-name-space">
+                <div id="file-names"></div>
+                <span class="remove-files">[[messagesPanel.removeFiles]]</span>
+            </div>
+            <div id="attach-files-button-wrapper">
+
+            </div>
+
+            <div id="send-message" class="button flat tiny">[[messagesPanel.send]]</div>
+            <div id="sending-message" class="button flat tiny">[[messagesPanel.sendingMessage]]</div>
+        </div>
+    </div>
+</div>
+
+<div id="template-discussion-attach-files-button">
+    <div id="attach-files"><span class="icon ti-clip"></span>[[messagesPanel.attachFiles]]
+        <input id="fileupload" type="file" name="files[]" multiple>
+    </div>
+</div>
+
+<div id="template-discussion-header">
+    <div id="discussion-header">
+        <h4 id="discussion-entity-title">
+            [[messagesPanel.discussionFor]] <span id="discussion-entity-name">{{entity.type}}</span>:
+        </h4>
+
+        <a id="back-to-entity" class="button" href="#{{entityUrl}}"> <span class="ti-arrow-left"></span>
+            [[messagesPanel.backButtonText]] {{entity.type}}</a>
+
+        {{#isProject}}
+        {{#with entity}}
+        <h4>{{name}}</h4>
+        {{/with}}
+        {{/isProject}}
+
+
+        {{#isTask}}
+        {{#with entity}}
+        <h4>{{task}}</h4>
+        {{/with}}
+        {{/isTask}}
+
+
+        {{#isInvoice}}
+        {{#with entity}}
+        <h4>#{{number}} - {{formattedTotal}}</h4>
+        {{/with}}
+        {{/isInvoice}}
+
+
+        {{#isFile}}
+        {{#with entity}}
+        <h4>{{name}}</h4>
+        {{/with}}
+        {{/isFile}}
+    </div>
+</div>
+
+
+<div id="template-message">
+    <li class="message {{#onChildObject}}on-child-object{{/onChildObject}}">
+
+        {{#onChildObject}}
+        <div class="posted-on"><span>[[messagesPanel.postedOn]] {{referenceObject}}</span>
+            : <a href="#projects/{{projectId}}/{{referenceObject}}/{{referenceId}}">{{childEntityName}}</a>
+        </div>
+        {{/onChildObject}}
+        <div class="message-contents">
+            <div class="message-meta">
+                <a class="user-image" href="#users/{{userId}}"></a>
+            </div>
+            <div class="message-main">
+
+
+                <div class="message-text">
+                    <a class="user-link" href="#users/{{userId}}">{{userName}}</a> -
+                    {{! message text is set programmatically to preserve line breaks etc. Can't use triple brackets
+                    because
+                    this user supplied data and that would leave us vulnerable to an xss attack. Data is sanitized
+                    before being set by code}}
+                    <span class="message-text-inner"></span>
+                </div>
+
+                {{#if files}}
+                <div class="message-files">
+                    {{#files}}
+                    <div><span class="icon ti-file"></span><a class="message-file-name"
+                                                              href="#projects/{{projectId}}/files/{{id}}">{{name}}</a>
+                    </div>
+                    {{/files}}
+                </div>
+                {{/if}}
+
+                <div class="message-date" title="{{formattedDateText}}">{{dateText}}</div>
+            </div>
+        </div>
+
+
+    </li>
+</div>
+
+<div id="template-inline-popup">
+    <div class="inline-popup">boom</div>
+</div>
+
+
+<div id="template-form-assign-tasks">
+    <form id="assign-tasks-form" action="#" method="post" novalidate>
+        <div class="field">
+
+            <select name="user_id" placeholder="[[assignTaskView.assignTo]]" required="required">
+                <option></option>
+            </select>
+            <input type="submit" value="[[assignTaskView.assignTask]]">
+        </div>
+    </form>
+</div>
+
+<div id="template-start-timer-popup">
+    <div id="start-timer-popup">
+        <p>[[startTimerPopup.instructions]]</p>
+        <span class="button cancel">[[startTimerPopup.cancel]]</span>
+        <span class="button submit">[[startTimerPopup.startTimer]]</span>
+    </div>
+</div>
+
+</div>
